@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dashboard</title>
+    <title>Meus Dados</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/63ef79e03c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-
+ 
   <body>
     <!-- Navbar -->
     <nav class="navbar is-fixed-top box-shadow-y">
@@ -106,7 +106,7 @@
               <p class="menu-label has-text-white">Outros</p>
               <ul class="menu-list">
                 <li>
-                  <a href="#" class="has-text-black">
+                  <a href="#" class="has-text-black has-background-white" >
                     <i class="fas fa-info-circle icon"></i>
                     Meus Dados</a
                   >
@@ -129,11 +129,103 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="../../src/dashboard.js"></script>
+
+    <!-- Form -->
+    <div
+    class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile" id="form"
+  >
+    <div class="p-1">
+      <div class="columns is-variable is-desktop">
+        <div class="column">
+
+          <div class="field">
+            <label class="label">Nome</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Nome Completo">
+            </div>
+          </div> 
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="E-mail">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">CPF</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input" id="cpf" >
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Telefone</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input" id="telefone">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Senha</label>
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Confirme a senha</label>
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          
+          <div class="field">
+            <label class="label">Sexo</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                </select>
+              </div>
+            </div>
+          </div>
+                    
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                Eu concordo com os <a href="#">termos e condições</a>
+              </label>
+            </div>
+          </div>
+                   
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Confirmar</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancelar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="../../src/jquery.mask.js"></script>
+  <script src="../../src/dashboard.js"></script>
 </html>
