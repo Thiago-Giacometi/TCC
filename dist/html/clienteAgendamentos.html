@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dashboard</title>
+    <title>Meus Agendamentos</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
@@ -82,7 +82,7 @@
               <p class="menu-label has-text-white">Geral</p>
               <ul class="menu-list">
                 <li>
-                  <a href="clienteDashboard.html" class="has-text-black has-background-white">
+                  <a href="clienteDashboard.html" class="has-text-black">
                     <i class="fas fa-tachometer-alt icon"></i>
                     Dashboard</a
                   >
@@ -97,7 +97,7 @@
                   >
                 </li>
                 <li>
-                  <a href="clienteAgendamentos.html" class="has-text-black">
+                  <a href="clienteAgendamentos.html" class="has-text-black has-background-white">
                     <i class="fas fa-cogs icon"></i>
                     Agendamentos</a
                   >
@@ -106,7 +106,7 @@
               <p class="menu-label has-text-white">Outros</p>
               <ul class="menu-list">
                 <li>
-                  <a href="clienteMeusDados.html" class="has-text-black " >
+                  <a href="clienteMeusDados.html" class="has-text-black" >
                     <i class="fas fa-info-circle icon"></i>
                     Meus Dados</a
                   >
@@ -137,7 +137,45 @@
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
-
+          <table class="content-table">
+            <caption>
+              Meus Agendamentos
+            </caption>
+            <thead>
+              <tr>
+                <th>Lava Rápido</th>
+                <th>Cliente</th>
+                <th>Carro</th>
+                <th>Placa</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Modo</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Over Wash</td>
+                <td>Thiago</td>
+                <td>Gol</td>
+                <td>AAA-0000</td>
+                <td>07/04/2022</td>
+                <td>10:00</td>
+                <td>Leva - Traz</td>
+                <td>Em andamento</td>
+              </tr>
+              <tr>
+                <td>Over Wash</td>
+                <td>Thiago</td>
+                <td>Gol</td>
+                <td>AAA-0000</td>
+                <td>07/04/2022</td>
+                <td>10:00</td>
+                <td>Leva - Traz</td>
+                <td>Em andamento</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

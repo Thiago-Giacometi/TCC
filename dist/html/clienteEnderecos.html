@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dashboard</title>
+    <title>Meus Endereços</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
@@ -82,7 +82,7 @@
               <p class="menu-label has-text-white">Geral</p>
               <ul class="menu-list">
                 <li>
-                  <a href="clienteDashboard.html" class="has-text-black has-background-white">
+                  <a href="clienteDashboard.html" class="has-text-black">
                     <i class="fas fa-tachometer-alt icon"></i>
                     Dashboard</a
                   >
@@ -112,7 +112,7 @@
                   >
                 </li>
                 <li>
-                  <a href="clienteEnderecos.html" class="has-text-black">
+                  <a href="clienteEnderecos.html" class="has-text-black has-background-white">
                     <i class="fas fa-info-circle icon"></i>
                     Meus Endereços</a
                   >
@@ -137,6 +137,56 @@
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
+
+          <div class="field">
+            <label class="label">Nome</label>
+            <div class="control">
+              <input class="input" type="text" id="nome_endereco">
+            </div>
+          </div> 
+
+          <div class="teste">
+            <div class="field is-grouped">
+              <label class="label ">Bairro</label>
+              <div class="control">
+                <input class="input" type="text">
+              </div>
+              <label class="label ">Estado</label>
+              <div class="control">
+                <input class="input" type="text">
+              </div>
+              <label class="label ">Cidade</label>
+              <div class="control">
+                <input class="input" type="text">
+              </div>
+            </div> 
+
+            <div class="field is-grouped">
+              <label class="label">Rua</label>
+              <div class="control">
+                <input class="input" type="text" >
+              </div>
+              <label class="label">Número</label>
+              <div class="control">
+                <input class="input" type="text" >
+              </div>
+              <label class="label">Complemento</label>
+              <div class="control">
+                <input class="input" type="text" >
+              </div>
+            </div>
+          </div>
+          
+          <br>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Confirmar</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancelar</button>
+            </div>
+          </div>
+
 
         </div>
       </div>
