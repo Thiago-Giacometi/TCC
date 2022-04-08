@@ -138,14 +138,20 @@
       <div class="columns is-variable is-desktop">
         <div class="column">
 
-          <div class="field">
-            <label class="label">Nome</label>
-            <div class="control">
-              <input class="input" type="text" id="nome_endereco">
-            </div>
-          </div> 
+          
+          <h2>Adicionar Endereço</h2>
+          <div class="enderecoAdd">
 
-          <div class="teste">
+            <div class="field is-grouped">
+              <label class="label">Nome</label>
+              <div class="control">
+                <input class="input" type="text" >
+              </div>
+              <label class="label">CEP</label>
+              <div class="control">
+                <input class="input" type="text" id="cep">
+              </div>
+            </div> 
             <div class="field is-grouped">
               <label class="label ">Bairro</label>
               <div class="control">
@@ -160,7 +166,6 @@
                 <input class="input" type="text">
               </div>
             </div> 
-
             <div class="field is-grouped">
               <label class="label">Rua</label>
               <div class="control">
@@ -176,7 +181,6 @@
               </div>
             </div>
           </div>
-          
           <br>
           <div class="field is-grouped">
             <div class="control">
@@ -185,6 +189,38 @@
             <div class="control">
               <button class="button is-link is-light">Cancelar</button>
             </div>
+          </div>
+
+          <div>
+            <table class="content-table">
+              <caption>
+                Meus Endereços
+              </caption>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>CEP</th>
+                  <th>Bairro</th>
+                  <th>Estado</th>
+                  <th>Cidade</th>
+                  <th>Rua</th>
+                  <th>Número</th>
+                  <th>Complemento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Casa</td>
+                  <td>13332-492</td>
+                  <td>Jardim Morumbi</td>
+                  <td>São Paulo</td>
+                  <td>Cidade</td>
+                  <td>Rua 01</td>
+                  <td>123</td>
+                  <td>Escola XXX</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
 

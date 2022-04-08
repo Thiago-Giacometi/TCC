@@ -125,17 +125,36 @@ table th{
   font-size: larger;
 }
 
-.teste, label{
+.enderecoAdd, label{
   padding-top: 5px;
   padding-right: 10px;
 }
-#nome_endereco{
-  width: 50%;
-}
 
-.teste input{
+.enderecoAdd input{
   width: 300px;
 }
+
+h2{
+  font-weight: bold;
+  padding-bottom: 10px;
+  text-align: left;
+  color: black;
+  font-size: large;
+}
+
+.agendar input, button, span{
+  width: 400px;
+  text-align: left;
+}
+
+.agendar{
+  padding: 0 30%;
+}
+
+.dropdown-content{
+  width: 400px;
+}
+
 
 
 /*# sourceMappingURL=style.css.map */

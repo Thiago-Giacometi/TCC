@@ -137,14 +137,110 @@
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
+          
+          <div class="agendar">
+            <div class="field">
+              <label class="label">Lava Rápido</label>
+              <div class="dropdown" id="dropdownLavarapido">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
+                    <span>Selecione</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu5" role="menu">
+                  <div class="dropdown-content">
+                    <a class="dropdown-item">
+                      Lava Rápido 01
+                    </a>
+                    <a class="dropdown-item">
+                      Lava Rápido 02
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="field">
+              <label class="label">Carro</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Modelo" >
+              </div>
+            </div> 
+
+            <div class="field">
+              <label class="label">Placa</label>
+              <div class="control">
+                <input class="input" type="text">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Endereço</label>
+              <div class="dropdown" id="dropdownEndereco">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
+                    <span>Selecione</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu5" role="menu">
+                  <div class="dropdown-content">
+                    <a class="dropdown-item">
+                      Casa
+                    </a>
+                    <a class="dropdown-item">
+                      Trabalho
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Data</label>
+              <div class="control">
+                <input class="input" type="text" id="data" >
+              </div>
+            </div> 
+
+            <div class="field">
+              <label class="label">Horário</label>
+              <div class="control">
+                <input class="input" type="text" id="hora">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Serviço</label>
+              <div class="control">
+                <input class="input" type="text">
+              </div>
+            </div> 
+
+            <div class="field">
+              <label class="label">Preço</label>
+              <div class="control">
+                <input class="input" type="text" disabled id="money">
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Confirmar</button>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
-
-
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="../../src/jquery.mask.js"></script>
-  <script src="../../src/dashboard.js"></script>
+  <script type="text/javascript" src="../../src/dashboard.js"></script>
 </html>
