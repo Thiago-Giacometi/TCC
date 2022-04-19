@@ -83,15 +83,14 @@ body {
  }
 
  .content-table {
-  width: 80%;
+  width: auto;
+  margin: auto;
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 0.9em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin-left: 150px;
 }
 
 table th{
@@ -153,6 +152,10 @@ h2{
 
 .dropdown-content{
   width: 400px;
+}
+
+.buttonTable button{
+  width: 100px;
 }
 
 
