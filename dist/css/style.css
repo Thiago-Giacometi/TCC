@@ -82,6 +82,13 @@ body {
    padding-right: 100px;
  }
 
+ table th{
+  color: white;
+}
+
+ .buttonTable button{
+  width: 100px;
+}
  .content-table {
   width: auto;
   margin: auto;
@@ -91,10 +98,6 @@ body {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-table th{
-  color: white;
 }
 
 .content-table thead tr {
@@ -124,12 +127,12 @@ table th{
   font-size: larger;
 }
 
-.enderecoAdd, label{
+.espacoForm, label{
   padding-top: 5px;
   padding-right: 10px;
 }
 
-.enderecoAdd input{
+.espacoForm input{
   width: 300px;
 }
 
@@ -141,7 +144,24 @@ h2{
   font-size: large;
 }
 
-.agendar input, button, span{
+h1{
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  font-size: large;
+}
+
+.agendar input{
+  width: 400px;
+  text-align: left;
+}
+
+.agendar button{
+  width: 400px;
+  text-align: left;
+}
+
+.agendar span{
   width: 400px;
   text-align: left;
 }
@@ -150,14 +170,18 @@ h2{
   padding: 0 30%;
 }
 
-.dropdown-content{
-  width: 400px;
+.dropdown-content, span, button{
+  width: 200px;
+  text-align: left;
 }
 
-.buttonTable button{
-  width: 100px;
+.chartCard{
+  padding-top: 125px;
+  display: flex;
 }
 
-
+.chartBox{
+  width: 49.5%;
+}
 
 /*# sourceMappingURL=style.css.map */
