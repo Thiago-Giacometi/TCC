@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   background-color: #efefef;
+  overflow: auto;
 }
 
 .px-1,
@@ -76,6 +77,7 @@ body {
             transform: translateX(0%);
   }
 }
+
  #form{
    padding-top: 100px;
    padding-left: 100px;
@@ -168,11 +170,6 @@ h1{
 
 .agendar{
   padding: 0 30%;
-}
-
-.dropdown-content, span, button{
-  width: 200px;
-  text-align: left;
 }
 
 .chartCard{

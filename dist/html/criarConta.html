@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cadastre-se</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
+      integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/63ef79e03c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/createAccount.css" />
+  </head>
+ 
+  <body>
+    <!-- Form -->
+    <div class="wrapper">
+      
+        <div class="p-1">
+          <div class="columns is-variable is-desktop">
+            <div class="column">
+              <h1>Cadastre-se</h1>
+              <div class="field">
+                <label class="label">Nome</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Nome Completo">
+                </div>
+              </div> 
+    
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="E-mail">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+    
+              <div class="field">
+                <label class="label">CPF</label>
+                <div class="control">
+                  <input class="input" type="text" id="cpf" >
+                </div>
+              </div>
+    
+              <div class="field">
+                <label class="label">Telefone</label>
+                <div class="control">
+                  <input class="input" type="text" id="telefone">
+                </div>
+              </div>
+    
+              <div class="field">
+                <label class="label">Senha</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Senha">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+    
+              <div class="field">
+                <label class="label">Confirme a senha</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Senha">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              
+              <div class="field">
+                <label class="label">Sexo</label>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option>Masculino</option>
+                      <option>Feminino</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+                        
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    Eu concordo com os <a href="#">termos e condições</a>
+                  </label>
+                </div>
+              </div>
+                       
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link">Confirmar</button>
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="../../src/jquery.mask.js"></script>
+  <script src="../../src/dashboard.js"></script>
+</html>

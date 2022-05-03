@@ -28,27 +28,3 @@ $(document).ready(function() {
     setMenuHeight();
   });
 });
-
-const menu = document.getElementById("dropdownLavarapido")
-  menu.addEventListener('click', e=> {
-    e.stopPropagation()
-    menu.classList.toggle('is-active')
-  })
-
-  const menu1 = document.getElementById("dropdownEndereco")
-  menu1.addEventListener('click', e=> {
-    e.stopPropagation()
-    menu1.classList.toggle('is-active')
-  })
-
-  const menu2 = document.getElementById("dropdownServico")
-  menu2.addEventListener('click', e=> {
-    e.stopPropagation()
-    menu2.classList.toggle('is-active')
-  })
-
-  const menu3 = document.getElementById("dropdownModo")
-  menu3.addEventListener('click', e=> {
-    e.stopPropagation()
-    menu3.classList.toggle('is-active')
-  })
