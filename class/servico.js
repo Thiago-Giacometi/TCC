@@ -1,4 +1,4 @@
-class Servico {
+export default class Servico {
   constructor(nome, descricao, preco, id_lava_rapido) {
     this.nome = nome
     this.descricao = descricao

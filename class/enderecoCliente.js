@@ -1,8 +1,13 @@
-import EnderecoLavaRapido from "./enderecoLavaRapido.js"
-
-export default class EnderecoCliente extends EnderecoLavaRapido {
+export default class EnderecoCliente{
   constructor(nome,rua, numero, bairro, complemento, cidade, uf, cep, id_cliente) {
-    super(nome,rua, numero, bairro, complemento, cidade, uf, cep)
+    this.nome = nome
+    this.rua = rua
+    this.numero = numero
+    this.bairro = bairro
+    this.complemento = complemento
+    this.cidade = cidade
+    this.uf = uf
+    this.cep = cep
     this.id_cliente = id_cliente
   }
 }

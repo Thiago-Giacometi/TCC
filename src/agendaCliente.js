@@ -15,7 +15,7 @@ let id_cliente = 0
 btnCadastro.addEventListener('click', function() {
   
   if(hora.value != '' && veiculo.value != '' && placa.value != '' && data.value != ''){ 
-    let agendamento = new Agendamento(data.value, hora.value , modo.value, id_cliente, lavaRapido.value, servico.value, endereco.value)
+    let agendamento = new Agendamento(data.value, hora.value , modo.value, id_cliente, lavaRapido.value, servico.value, money.value, endereco.value)
     console.log(agendamento)
   }
   else{
