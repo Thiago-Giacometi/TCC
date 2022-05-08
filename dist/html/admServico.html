@@ -167,14 +167,15 @@
               </div>
               <label class="label">Preço</label>
               <div class="control">
-                <input class="input" type="text" id="money">
+                <input class="input" type="text" id="preco">
               </div>
                 <label class="label">Lava Rápido</label>
                 <div class="control">
                   <div class="select">
-                    <select id="lavaRapido">
-                      <option>Lava Rápido Speed Wash</option>
-                      <option>Lava Rápido 2</option>
+                    <select id="lavaRapidos">
+                      <option hidden value="null">Selecione um lava rápido</option>
+                      <!-- <option>Lava Rápido Speed Wash</option>
+                      <option>Lava Rápido 2</option> -->
                     </select>
                   </div>
                 </div>
@@ -188,7 +189,7 @@
           <br>
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" id="cadastro">Cadatrar</button>
+              <button class="button is-link" id="cadastro">Cadastrar</button>
             </div>
             <div class="control">
               <button class="button is-link is-light">Cancelar</button>
@@ -213,7 +214,7 @@
                   <th>Excluir</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="table">
                 <tr>
                   <td>Lavagem Completa</td>
                   <td>50,00</td>
@@ -235,6 +236,7 @@
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="../../src/jquery.mask.js"></script>
   <script src="../../src/dashboard.js"></script>
   <script type="module" src="../../src/admServiço.js"></script>
