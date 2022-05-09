@@ -11,7 +11,7 @@ async function deletarServico(id_servico) {
   try {
     await axios.delete(`http://localhost:8090/servicos/${id_servico}`);
 
-    alert("Lava Rápido deletado com sucesso");
+    alert("Serviço deletado com sucesso");
 
     popularTabela();
   } catch (err) {
@@ -37,7 +37,7 @@ async function enviarFormulario(event) {
 
     await axios.post("http://localhost:8090/servicos", servico);
 
-    alert("Lava Rápido cadastrado com sucesso");
+    alert("Serviço cadastrado com sucesso");
     popularTabela();
   } else {
     alert("Favor preencher todos os campos");

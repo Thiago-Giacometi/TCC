@@ -1,0 +1,51 @@
+async function popularTabela() {
+  table.innerHTML = "";
+  try {
+    const dados = await axios.get("http://localhost:8090/agenda");
+    console.log(dados);
+
+    dados.data.forEach((item) => {
+      let linha = table.insertRow();
+
+      let lavaRapido = linha.insertCell(0);
+      lavaRapido.innerHTML = item.tb_lava_rapido.ds_nome;
+
+      let cliente = linha.insertCell(1);
+      cliente.innerHTML = item.tb_cliente.ds_nome;
+
+      let carro = linha.insertCell(2);
+      carro.innerHTML = item.ds_modelo;
+
+      let placa = linha.insertCell(3);
+      placa.innerHTML = item.ds_placa;
+
+      let data = linha.insertCell(0);
+      data.innerHTML = item.dt_agendamento;
+
+      let horario = linha.insertCell(1);
+      horario.innerHTML = item.hr_agendamento;
+
+      let servico = linha.insertCell(2);
+      servico.innerHTML = item.tb_servico.ds_nome_servico;
+
+      let preco = linha.insertCell(3);
+      preco.innerHTML = item.tb_servico.ds_preco;
+
+      let modo = linha.insertCell(3);
+      modo.innerHTML = item.modo;
+
+      let excluir = linha.insertCell(5);
+      excluir.innerHTML = `<button value="${item.id_agendamento}" class='button is-danger is-small deletar'>Excluir</button>`;
+    });
+
+    document.querySelectorAll(".deletar").forEach((button) => {
+      button.addEventListener("click", (event) =>
+        deletarServico(event.target.value)
+      );
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+popularTabela();

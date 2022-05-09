@@ -9,20 +9,34 @@ let senhaConfirm = document.getElementById('senhaConfirm')
 let sexo = document.getElementById('sexo')
 let btnCadastro = document.getElementById('cadastro')
 
-btnCadastro.addEventListener('click', function() {
-  
-  if(nome.value != '' && cpf.value != '' && email.value != '' && senha.value != '' && senhaConfirm.value != ''){ 
-    if(senha.value == senhaConfirm.value){
-      let cliente = new Cliente(nome.value,cpf.value , email.value,senha.value , telefone.value, sexo.value)
-      console.log(cliente)
-    } 
-    else{
-      alert("Senhas Incompativeis")
-      document.getElementById('senha').value = ''
-      document.getElementById('senhaConfirm').value = ''
-    }
+
+async function enviarFormulario(event) {
+  console.log(event);
+  if (
+    nome.value != '' && 
+    cpf.value != '' && 
+    email.value != '' && 
+    senha.value != '' && 
+    senhaConfirm.value != ''
+  ) {
+    let cliente = new Cliente(
+      nome.value,
+      cpf.value , 
+      email.value,
+      senha.value , 
+      telefone.value, 
+      sexo.value
+    );
+    console.log(cliente);
+
+    await axios.post("http://localhost:8090/clientes", cliente);
+
+    alert("Cadastrado realizado com sucesso");
+    popularTabela();
+  } else {
+    alert("Favor preencher todos os campos");
   }
-  else{
-    alert("Favor preencher todos os campos")
-  }
-})
+}
+
+btnCadastro.addEventListener("click", enviarFormulario);
+
