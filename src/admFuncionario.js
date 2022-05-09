@@ -28,7 +28,6 @@ function limparCampos() {
   document.getElementById("cpf").value = '';
   document.getElementById("senha").value = '';
   document.getElementById("senhaConfirm").value = '';
-  document.getElementById("funcao").value = '';
   document.getElementById("lavaRapido").value = null;
 }
 

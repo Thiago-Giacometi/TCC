@@ -23,6 +23,17 @@ async function deletarLavaRapido(id_lava_rapido) {
   }
 }
 
+function limparCampos() {
+  document.getElementById("nome").value = '';
+  document.getElementById("cep").value = '';
+  document.getElementById("bairro").value = '';
+  document.getElementById("uf").value = '';
+  document.getElementById("cidade").value = '';
+  document.getElementById("rua").value = '';
+  document.getElementById("numero").value = '';
+  document.getElementById("complemento").value = '';
+}
+
 async function enviarFormulario(event) {
   console.log(event);
   if (
@@ -49,6 +60,7 @@ async function enviarFormulario(event) {
     await axios.post("http://localhost:8090/lavaRapido", lavaRapido);
 
     alert("Lava Rápido cadastrado com sucesso");
+    limparCampos();
     popularTabela();
   } else {
     alert("Favor preencher todos os campos");

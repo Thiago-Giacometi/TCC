@@ -9,6 +9,15 @@ let senhaConfirm = document.getElementById('senhaConfirm')
 let sexo = document.getElementById('sexo')
 let btnCadastro = document.getElementById('cadastro')
 
+function limparCampos() {
+  document.getElementById("nome").value = '';
+  document.getElementById("email").value = '';
+  document.getElementById("cpf").value = '';
+  document.getElementById("telefone").value = '';
+  document.getElementById("senha").value = '';
+  document.getElementById("senhaConfirm").value = '';
+
+}
 
 async function enviarFormulario(event) {
   console.log(event);
@@ -32,7 +41,8 @@ async function enviarFormulario(event) {
     await axios.post("http://localhost:8090/clientes", cliente);
 
     alert("Cadastrado realizado com sucesso");
-    popularTabela();
+    limparCampos();
+    window.location.href='http://127.0.0.1:5500/dist/html/login.html';
   } else {
     alert("Favor preencher todos os campos");
   }
