@@ -22,6 +22,16 @@ async function deletarServico(id_funcionario) {
   }
 }
 
+function limparCampos() {
+  document.getElementById("nome").value = '';
+  document.getElementById("email").value = '';
+  document.getElementById("cpf").value = '';
+  document.getElementById("senha").value = '';
+  document.getElementById("senhaConfirm").value = '';
+  document.getElementById("funcao").value = '';
+  document.getElementById("lavaRapido").value = null;
+}
+
 async function enviarFormulario(event) {
   console.log(event);
   if (
@@ -50,6 +60,7 @@ async function enviarFormulario(event) {
 
     alert("Funcionário cadastrado com sucesso");
     popularTabela();
+    limparCampos();
   } else {
     alert("Favor preencher todos os campos");
   }
