@@ -1,3 +1,5 @@
+let table = document.getElementById("table");
+
 async function popularTabela() {
   table.innerHTML = "";
   try {
@@ -19,7 +21,6 @@ async function popularTabela() {
       let cpf = linha.insertCell(3);
       cpf.innerHTML = item.ds_cpf;
     });
-
   } catch (err) {
     console.log(err);
   }

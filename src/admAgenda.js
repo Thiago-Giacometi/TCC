@@ -1,3 +1,5 @@
+let table = document.getElementById("table");
+
 async function popularTabela() {
   table.innerHTML = "";
   try {
@@ -19,22 +21,22 @@ async function popularTabela() {
       let placa = linha.insertCell(3);
       placa.innerHTML = item.ds_placa;
 
-      let data = linha.insertCell(0);
+      let data = linha.insertCell(4);
       data.innerHTML = item.dt_agendamento;
 
-      let horario = linha.insertCell(1);
+      let horario = linha.insertCell(5);
       horario.innerHTML = item.hr_agendamento;
 
-      let servico = linha.insertCell(2);
+      let servico = linha.insertCell(6);
       servico.innerHTML = item.tb_servico.ds_nome_servico;
 
-      let preco = linha.insertCell(3);
+      let preco = linha.insertCell(7);
       preco.innerHTML = item.tb_servico.ds_preco;
 
-      let modo = linha.insertCell(3);
+      let modo = linha.insertCell(8);
       modo.innerHTML = item.modo;
 
-      let excluir = linha.insertCell(5);
+      let excluir = linha.insertCell(9);
       excluir.innerHTML = `<button value="${item.id_agendamento}" class='button is-danger is-small deletar'>Excluir</button>`;
     });
 

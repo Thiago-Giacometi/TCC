@@ -1,13 +1,23 @@
-export default class EnderecoCliente{
-  constructor(nome,rua, numero, bairro, complemento, cidade, uf, cep, id_cliente) {
-    this.nome = nome
-    this.rua = rua
-    this.numero = numero
-    this.bairro = bairro
-    this.complemento = complemento
-    this.cidade = cidade
-    this.uf = uf
-    this.cep = cep
-    this.id_cliente = id_cliente
+export default class EnderecoCliente {
+  constructor(
+    nome,
+    rua,
+    numero,
+    bairro,
+    complemento,
+    cidade,
+    uf,
+    cep,
+    id_cliente
+  ) {
+    this.ds_tipo_endereco = nome;
+    this.ds_rua = rua;
+    this.ds_numero = numero;
+    this.ds_bairro = bairro;
+    this.ds_complemento = complemento;
+    this.ds_cidade = cidade;
+    this.ds_uf = uf;
+    this.ds_cep = cep;
+    this.tbClienteIdCliente = id_cliente;
   }
 }

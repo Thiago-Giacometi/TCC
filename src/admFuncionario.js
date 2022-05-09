@@ -1,13 +1,14 @@
 import Funcionario from "../class/funcionario.js";
 
-let nome = document.getElementById('nome')
-let email = document.getElementById('email')
-let cpf = document.getElementById('cpf')
-let senha = document.getElementById('senha')
-let senhaConfirm = document.getElementById('senhaConfirm')
-let funcao = document.getElementById('funcao')
-let lavaRapido = document.getElementById('lavaRapido')
-let btnCadastro = document.getElementById('cadastro')
+let nome = document.getElementById("nome");
+let email = document.getElementById("email");
+let cpf = document.getElementById("cpf");
+let senha = document.getElementById("senha");
+let senhaConfirm = document.getElementById("senhaConfirm");
+let funcao = document.getElementById("funcao");
+let lavaRapido = document.getElementById("lavaRapido");
+let btnCadastro = document.getElementById("cadastro");
+let table = document.getElementById("table");
 
 async function deletarServico(id_funcionario) {
   try {
@@ -24,28 +25,25 @@ async function deletarServico(id_funcionario) {
 async function enviarFormulario(event) {
   console.log(event);
   if (
-    nome.value != '' && 
-    cpf.value != '' && 
-    email.value != '' && 
-    senha.value != '' && 
-    senhaConfirm.value != '' &&
+    nome.value != "" &&
+    cpf.value != "" &&
+    email.value != "" &&
+    senha.value != "" &&
+    senhaConfirm.value != "" &&
     lavaRapido.value != "null"
-  ) { if(
-    senha.value == senhaConfirm.value
-    ) {
-        let funcionario = new Funcionario(
-          nome.value,
-          cpf.value , 
-          email.value, 
-          senha.value, 
-          lavaRapido.value, 
-          funcao.value
-        );
-      }
-      else
-      {
-      alert("Senhas Incompativeis")
-      }
+  ) {
+    if (senha.value == senhaConfirm.value) {
+      var funcionario = new Funcionario(
+        nome.value,
+        cpf.value,
+        email.value,
+        senha.value,
+        lavaRapido.value,
+        funcao.value
+      );
+    } else {
+      alert("Senhas Incompativeis");
+    }
     console.log(funcionario);
 
     await axios.post("http://localhost:8090/funcionario", funcionario);
@@ -56,7 +54,6 @@ async function enviarFormulario(event) {
     alert("Favor preencher todos os campos");
   }
 }
-
 
 async function popularSelect() {
   try {
@@ -97,7 +94,7 @@ async function popularTabela() {
       editar.innerHTML = `<button  class='button is-info is-small'>Editar</button>`;
 
       let excluir = linha.insertCell(5);
-      excluir.innerHTML = `<button value="${item.id_lava_rapido}" class='button is-danger is-small deletar'>Excluir</button>`;
+      excluir.innerHTML = `<button value="${item.id_funcionario}" class='button is-danger is-small deletar'>Excluir</button>`;
     });
 
     document.querySelectorAll(".deletar").forEach((button) => {
