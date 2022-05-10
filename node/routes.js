@@ -6,6 +6,7 @@ import agendamento from './controllers/agendamentos.js'
 import funcionario from './controllers/funcionarios.js'
 import lavaRapidos from './controllers/lavaRapidos.js'
 import servicos from './controllers/servicos.js'
+import autenticacao from './controllers/autenticacao.js'
 
 const router = express.Router()
 
@@ -47,5 +48,7 @@ router.post('/adms', adms.addAdm)
 router.get('/adms', adms.buscaTodosAdms)
 router.put('/adms/:id_administrador', adms.attAdm)
 router.delete('/adms/:id_administrador', adms.deletarAdm)
+
+router.post('/login', autenticacao.login)
 
 export default router

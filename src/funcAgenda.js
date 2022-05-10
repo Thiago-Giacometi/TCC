@@ -1,4 +1,5 @@
 let table = document.getElementById("table");
+let userName = document.getElementById("username");
 
 async function popularTabela() {
   table.innerHTML = "";
@@ -41,4 +42,13 @@ async function popularTabela() {
   }
 }
 
+function checaUsuario() {
+  if (usuario.ds_funcao !== "Funcionário") {
+    window.location.href = "login.html";
+  }
+}
+
+sair.addEventListener("click", logout);
+
+checaUsuario();
 popularTabela();
