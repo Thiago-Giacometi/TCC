@@ -1,5 +1,17 @@
 let table = document.getElementById("table");
 
+async function deletarAgendamento(id_agendamento) {
+  try {
+    await axios.delete(`http://localhost:8090/agenda/${id_agendamento}`);
+
+    alert("Agendamento deletado com sucesso");
+
+    popularTabela();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function popularTabela() {
   table.innerHTML = "";
   try {
@@ -42,7 +54,7 @@ async function popularTabela() {
 
     document.querySelectorAll(".deletar").forEach((button) => {
       button.addEventListener("click", (event) =>
-        deletarServico(event.target.value)
+        deletarAgendamento(event.target.value)
       );
     });
   } catch (err) {

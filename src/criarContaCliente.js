@@ -42,7 +42,7 @@ async function enviarFormulario(event) {
 
     alert("Cadastrado realizado com sucesso");
     limparCampos();
-    window.location.href='http://127.0.0.1:5500/dist/html/login.html';
+    window.location.href='login.html';
   } else {
     alert("Favor preencher todos os campos");
   }
