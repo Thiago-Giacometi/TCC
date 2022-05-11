@@ -161,11 +161,11 @@ function idCliente() {
 
     if (!storage) {
       window.location.href = "login.html";
-    
-    const usuario = JSON.parse(storage);
+    } else {
+      const usuario = JSON.parse(storage);
 
-    return usuario.id_cliente || alert("Realizar Login Novamente!");
-  }
+      return usuario.id_cliente || alert("Realizar Login Novamente!");
+    }
 }
 
 function buscarValor() {
