@@ -93,13 +93,13 @@ async function popularSelect() {
       endereco.appendChild(option1);
     });
 
-    const dados2 = await axios.get("http://localhost:8090/servico/");
+    /*const dados2 = await axios.get("http://localhost:8090/servico/");
     console.log(dados2);
 
     const options2 = dados2.data.forEach((item) => {
       const option2 = new Option(item.ds_nome_servico, item.id_servico);
       servico.appendChild(option2);
-    });
+    });*/
   } catch (err) {
     console.log(err);
   }
@@ -192,6 +192,22 @@ function buscarValor() {
     console.log(err);
   }
 }
+
+lavaRapido.addEventListener("change", function() {
+  let idLavaRapido = lavaRapido.value
+
+  try
+  {
+    const dados2 = await axios.get("http://localhost:8090/servico/" + idLavaRapido);
+    const options2 = dados2.data.forEach((item) => {
+      const option2 = new Option(item.ds_nome_servico, item.id_servico);
+      servico.appendChild(option2);
+    });
+  } 
+  catch (err) {
+    console.log(err);
+  } 
+})
 
 servico.addEventListener("selectionchange", buscarValor);
 
