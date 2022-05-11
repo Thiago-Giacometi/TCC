@@ -46,6 +46,8 @@ router.delete('/servicos/:id_servico', servicos.deletarServico)
 
 router.get('/agenda/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
+router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
+
 router.get('/servico/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
 
 router.post('/login', autenticacao.login)

@@ -9,6 +9,15 @@ function buscaTodosEnderecosCliente(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarEnderecoCliente(req, res) {
+  EnderecoClienteRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      tbClienteIdCliente: req.params.tbClienteIdCliente,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addEnderecoCliente(req, res) {
   const { body } = req
   EnderecoClienteRepository.create({
@@ -58,4 +67,10 @@ async function deletarEnderecoCliente(req, res) {
   EnderecoClienteRepository.findAll().then((result) => res.json(result))
 }
 
-export default { buscaTodosEnderecosCliente, addEnderecoCliente, attEnderecoCliente, deletarEnderecoCliente }
+export default {
+  buscaTodosEnderecosCliente,
+  addEnderecoCliente,
+  attEnderecoCliente,
+  deletarEnderecoCliente,
+  buscarEnderecoCliente,
+}
