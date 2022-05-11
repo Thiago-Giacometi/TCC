@@ -13,17 +13,14 @@ const servico = db.define(
     ds_nome_servico: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
     },
     ds_servico: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
     },
     ds_preco: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      unique: true,
     },
   },
   { tableName: 'tb_servico' }

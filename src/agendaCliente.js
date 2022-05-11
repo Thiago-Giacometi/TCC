@@ -193,21 +193,23 @@ function buscarValor() {
   }
 }
 
-lavaRapido.addEventListener("change", function() {
-  let idLavaRapido = lavaRapido.value
+lavaRapido.addEventListener("change", async function () {
+  servico.options.length = 1;
+  let idLavaRapido = lavaRapido.value;
 
-  try
-  {
-    const dados2 = await axios.get("http://localhost:8090/servico/" + idLavaRapido);
+  try {
+    const dados2 = await axios.get(
+      "http://localhost:8090/servico/" + idLavaRapido
+    );
+    console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
       const option2 = new Option(item.ds_nome_servico, item.id_servico);
       servico.appendChild(option2);
     });
-  } 
-  catch (err) {
+  } catch (err) {
     console.log(err);
-  } 
-})
+  }
+});
 
 servico.addEventListener("selectionchange", buscarValor);
 
