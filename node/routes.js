@@ -44,10 +44,9 @@ router.get('/servicos', servicos.buscaTodosServicos)
 router.put('/servicos/:id_servico', servicos.attServico)
 router.delete('/servicos/:id_servico', servicos.deletarServico)
 
-router.post('/adms', adms.addAdm)
-router.get('/adms', adms.buscaTodosAdms)
-router.put('/adms/:id_administrador', adms.attAdm)
-router.delete('/adms/:id_administrador', adms.deletarAdm)
+router.get('/agenda/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
+
+router.get('/servico/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
 
 router.post('/login', autenticacao.login)
 

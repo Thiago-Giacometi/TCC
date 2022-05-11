@@ -22,7 +22,7 @@ async function deletarServico(id_servico) {
 async function enviarFormulario(event) {
   console.log(event);
   if (
-    servico.value != "" &&
+    nome.value != "" &&
     money.value != "" &&
     descricao.value != "" &&
     lavaRapido.value != "null"

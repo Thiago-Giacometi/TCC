@@ -8,6 +8,15 @@ function buscaTodosServicos(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarServicoLavaRapido(req, res) {
+  ServicoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      tbLavaRapidoIdLavaRapido: req.params.tbLavaRapidoIdLavaRapido,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addServico(req, res) {
   const { body } = req
   ServicoRepository.create({
@@ -47,4 +56,4 @@ async function deletarServico(req, res) {
   ServicoRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addServico, buscaTodosServicos, attServico, deletarServico }
+export default { addServico, buscaTodosServicos, attServico, deletarServico, buscarServicoLavaRapido }

@@ -1,17 +1,17 @@
-import Agendamento from '../class/agendamento.js'
+import Agendamento from "../class/agendamento.js";
 
-let lavaRapido = document.getElementById('lavaRapido')
-let veiculo = document.getElementById('veiculo')
-let placa = document.getElementById('placa')
-let endereco = document.getElementById('endereco')
-let data = document.getElementById('data')
-let hora = document.getElementById('hora')
-let servico = document.getElementById('servico')
-let money = document.getElementById('money')
-let modo = document.getElementById('modo')
-let btnCadastro = document.getElementById('cadastro')
+let lavaRapido = document.getElementById("lavaRapido");
+let veiculo = document.getElementById("veiculo");
+let placa = document.getElementById("placa");
+let endereco = document.getElementById("endereco");
+let data = document.getElementById("data");
+let hora = document.getElementById("hora");
+let servico = document.getElementById("servico");
+let preco = document.getElementById("preco");
+let modo = document.getElementById("modo");
+let btnCadastro = document.getElementById("cadastro");
 let table = document.getElementById("table");
-
+let id_cliente;
 
 async function deletarAgendamento(id_agendamento) {
   try {
@@ -25,33 +25,41 @@ async function deletarAgendamento(id_agendamento) {
   }
 }
 
-
 async function editarAgendamento(id_agendamento) {
-  JSON.stringify(id_agendamento)
+  try {
+    await axios.put(`http://localhost:8090/agenda/${id_agendamento}`);
+
+    alert("Agendamento deletado com sucesso");
+
+    popularTabela();
+  } catch (err) {
+    console.log(err);
+  }
+  JSON.stringify(id_agendamento);
   window.localStorage.setItem(id_agendamento);
 }
 
 async function enviarFormulario(event) {
   console.log(event);
   if (
-    hora.value != '' && 
-    veiculo.value != '' && 
-    placa.value != '' && 
-    data.value != '' &&
+    hora.value != "" &&
+    veiculo.value != "" &&
+    placa.value != "" &&
+    data.value != "" &&
     lavaRapido.value != "null" &&
-    endereco.value != "null" &&
+    //endereco.value != "null" &&
     servico.value != "null"
   ) {
     let agendamento = new Agendamento(
-      modo.value, 
+      modo.value,
       placa.value,
-      data.value, 
-      hora.value , 
-      modo.value,  
-      id_cliente = idCliente(), 
-      lavaRapido.value, 
-      servico.value, 
-      money.value, 
+      data.value,
+      hora.value,
+      modo.value,
+      (id_cliente = idCliente()),
+      lavaRapido.value,
+      servico.value,
+      preco.value
     );
     console.log(agendamento);
 
@@ -66,30 +74,32 @@ async function enviarFormulario(event) {
 
 async function popularSelect() {
   try {
-    const dados = await axios.get("http://localhost:8090/agenda");
+    const dados = await axios.get("http://localhost:8090/lavaRapido");
     console.log(dados);
 
     const options = dados.data.forEach((item) => {
       const option = new Option(item.ds_nome, item.id_lava_rapido);
       lavaRapido.appendChild(option);
     });
-    
+
     const dados1 = await axios.get("http://localhost:8090/clientesEndereco");
     console.log(dados1);
 
     const options1 = dados1.data.forEach((item) => {
-      const option1 = new Option(item.ds_tipo_endereco, item.id_cliente_endereco);
+      const option1 = new Option(
+        item.ds_tipo_endereco,
+        item.id_cliente_endereco
+      );
       endereco.appendChild(option1);
     });
 
-    const dados2 = await axios.get("http://localhost:8090/servicos");
+    const dados2 = await axios.get("http://localhost:8090/servico/");
     console.log(dados2);
 
     const options2 = dados2.data.forEach((item) => {
       const option2 = new Option(item.ds_nome_servico, item.id_servico);
       servico.appendChild(option2);
     });
-
   } catch (err) {
     console.log(err);
   }
@@ -98,7 +108,9 @@ async function popularSelect() {
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/agenda");
+    const dados = await axios.get(
+      "http://localhost:8090/agenda/" + idCliente()
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {
@@ -149,34 +161,31 @@ async function popularTabela() {
         editarAgendamento(event.target.value)
       );
     });
-
   } catch (err) {
     console.log(err);
   }
 }
 
 function idCliente() {
-  
-    const storage = window.localStorage.getItem("usuario");
+  const storage = window.localStorage.getItem("usuario");
 
-    if (!storage) {
-      window.location.href = "login.html";
-    } else {
-      const usuario = JSON.parse(storage);
+  if (!storage) {
+    window.location.href = "login.html";
+  } else {
+    const usuario = JSON.parse(storage);
 
-      return usuario.id_cliente || alert("Realizar Login Novamente!");
-    }
+    return usuario.id_cliente || alert("Realizar Login Novamente!");
+  }
 }
 
 function buscarValor() {
   try {
-
-    const dados2 = await axios.get("http://localhost:8090/servicos");
+    const dados2 = axios.get("http://localhost:8090/servicos");
     console.log(dados2);
 
     const options2 = dados2.data.forEach((item) => {
-      if(servico.value == item.ds_nome_servico){
-        document.getElementById('money').value = item.ds_preco
+      if (servico.value == item.ds_nome_servico) {
+        document.getElementById("preco").value = item.ds_preco;
       }
     });
   } catch (err) {
@@ -184,9 +193,10 @@ function buscarValor() {
   }
 }
 
-servico.addEventListener("selectionchange", buscarValor)
+servico.addEventListener("selectionchange", buscarValor);
 
 btnCadastro.addEventListener("click", enviarFormulario);
 
 popularTabela();
 popularSelect();
+//console.log(lavaRapido.options[].value);

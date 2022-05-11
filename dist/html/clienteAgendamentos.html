@@ -126,7 +126,7 @@
               <div class="control">
                 <div class="select">
                   <select id="endereco">
-                    <option hidden value="null">Selecione um lava rápido</option>
+                    <option hidden value="null">Selecione um endereço</option>
                   </select>
                 </div>
               </div>
@@ -147,14 +147,14 @@
                 <div class="control">
                   <div class="select">
                     <select id="servico">
-                      <option hidden value="null">Selecione um lava rápido</option>
+                      <option hidden value="null">Selecione um serviço</option>
                     </select>
                   </div>
                 </div>
 
               <label class="label">Preço</label>
               <div class="control">
-                <input class="input" type="text" disabled id="money">
+                <input class="input" type="text" disabled id="preco">
               </div>
 
               <label class="label">Modo</label>
@@ -178,7 +178,7 @@
  
             </div>
 
-            <table class="content-table" id="table">
+            <table class="content-table">
               <caption>
                 Meus Agendamentos
               </caption>
@@ -197,7 +197,7 @@
                   <th>Cancelar</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="table">
                 
               </tbody>
             </table>
@@ -212,4 +212,5 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="module" src="../../src/globais.js"></script>
 <script src="../../src/dashboard.js"></script>
+<script type="module" src="../../src/agendaCliente.js"></script>
 </html>

@@ -3,6 +3,15 @@ import cliente from '../models/clienteModel.js'
 import lavaRapido from '../models/lavaRapidoModel.js'
 import servico from '../models/servicoModel.js'
 
+function buscarAgendamentoCliente(req, res) {
+  AgendamentoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      tbClienteIdCliente: req.params.tbClienteIdCliente,
+    },
+  }).then((result) => res.json(result))
+}
+
 function buscarAgendamento(req, res) {
   AgendamentoRepository.findAll({
     include: { all: true, nested: true },
@@ -56,4 +65,4 @@ async function deletarAgendamento(req, res) {
   AgendamentoRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addAgendamento, buscarAgendamento, attAgendamento, deletarAgendamento }
+export default { addAgendamento, buscarAgendamento, attAgendamento, deletarAgendamento, buscarAgendamentoCliente }
