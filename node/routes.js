@@ -21,6 +21,7 @@ router.delete('/agenda/:id_agendamento', agendamento.deletarAgendamento)
 
 router.post('/clientes', clientes.addCliente)
 router.get('/clientes', clientes.buscaTodosClientes)
+router.get('/clientes/:id_cliente', clientes.buscaUmCliente)
 router.put('/clientes/:id_cliente', clientes.attCliente)
 router.delete('/clientes/:id_cliente', clientes.deletarCliente)
 
@@ -48,8 +49,8 @@ router.get('/agenda/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
 router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
 
-router.get('/servico/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
-router.get('/servico/:tbServicoIdServico', servicos.buscarPrecoServicoLavaRapido)
+router.get('/servicosLavaRapido/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
+router.get('/servicosPreco/:id_servico', servicos.buscarPrecoServicoLavaRapido)
 
 router.post('/login', autenticacao.login)
 

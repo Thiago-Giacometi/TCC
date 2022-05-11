@@ -8,6 +8,15 @@ function buscaTodosClientes(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscaUmCliente(req, res) {
+  ClienteRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_cliente: req.params.id_cliente,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addCliente(req, res) {
   const { body } = req
   ClienteRepository.create({
@@ -51,4 +60,4 @@ async function deletarCliente(req, res) {
   ClienteRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addCliente, buscaTodosClientes, attCliente, deletarCliente }
+export default { addCliente, buscaTodosClientes, attCliente, deletarCliente, buscaUmCliente }

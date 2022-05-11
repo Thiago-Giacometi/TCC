@@ -21,7 +21,7 @@ function buscarPrecoServicoLavaRapido(req, res) {
   ServicoRepository.findAll({
     include: { all: true, nested: true },
     where: {
-      tbServicoIdServico: req.params.tbServicoIdServico,
+      id_servico: req.params.id_servico,
     },
   }).then((result) => res.json(result))
 }
@@ -65,4 +65,11 @@ async function deletarServico(req, res) {
   ServicoRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addServico, buscaTodosServicos, attServico, deletarServico, buscarServicoLavaRapido, buscarPrecoServicoLavaRapido }
+export default {
+  addServico,
+  buscaTodosServicos,
+  attServico,
+  deletarServico,
+  buscarServicoLavaRapido,
+  buscarPrecoServicoLavaRapido,
+}

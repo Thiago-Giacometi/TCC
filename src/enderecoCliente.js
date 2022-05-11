@@ -13,7 +13,9 @@ let id_cliente;
 
 async function deletarEndereco(id_endereco_cliente) {
   try {
-    await axios.delete(`http://localhost:8090/agenda/${id_endereco_cliente}`);
+    await axios.delete(
+      `http://localhost:8090/clientesEndereco/${id_endereco_cliente}`
+    );
 
     alert("Endereço deletado com sucesso");
 
@@ -92,15 +94,15 @@ async function popularTabela() {
       cep.innerHTML = item.ds_cep;
 
       let editar = linha.insertCell(8);
-      editar.innerHTML = `<button value="${item.id_agendamento}" class='button is-info is-small editar'>Editar</button>`;
+      editar.innerHTML = `<button value="${item.id_endereco_cliente}" class='button is-info is-small editar'>Editar</button>`;
 
       let excluir = linha.insertCell(9);
-      excluir.innerHTML = `<button value="${item.id_agendamento}" class='button is-danger is-small deletar'>Excluir</button>`;
+      excluir.innerHTML = `<button value="${item.id_endereco_cliente}" class='button is-danger is-small deletar'>Excluir</button>`;
     });
 
     document.querySelectorAll(".deletar").forEach((button) => {
       button.addEventListener("click", (event) =>
-        deletarAgendamento(event.target.value)
+        deletarEndereco(event.target.value)
       );
     });
 

@@ -92,7 +92,6 @@ async function popularSelect() {
       );
       endereco.appendChild(option1);
     });
-
   } catch (err) {
     console.log(err);
   }
@@ -171,19 +170,17 @@ function idCliente() {
   }
 }
 
-function buscarValor() {
-  preco.options.length = 0;
+async function buscarValor() {
+  preco.value = "";
   let idServico = servico.value;
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servico/" + idServico
+      "http://localhost:8090/servicosPreco/" + idServico
     );
     console.log(dados2);
-    const options2 = dados2.data.forEach((item) => {
-      const option2 = new Option(item.ds_preco, item.id_servico);
-      document.getElementById('preco').value = option2.item.ds_preco
-    });
+    const preco1 = dados2.data[0].ds_preco;
+    document.getElementById("preco").value = preco1;
   } catch (err) {
     console.log(err);
   }
@@ -195,7 +192,7 @@ lavaRapido.addEventListener("change", async function () {
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servico/" + idLavaRapido
+      "http://localhost:8090/servicosLavaRapido/" + idLavaRapido
     );
     console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
