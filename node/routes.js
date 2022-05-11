@@ -49,6 +49,7 @@ router.get('/agenda/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
 
 router.get('/servico/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
+router.get('/servico/:tbServicoIdServico', servicos.buscarPrecoServicoLavaRapido)
 
 router.post('/login', autenticacao.login)
 

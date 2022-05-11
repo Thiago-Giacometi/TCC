@@ -93,13 +93,6 @@ async function popularSelect() {
       endereco.appendChild(option1);
     });
 
-    /*const dados2 = await axios.get("http://localhost:8090/servico/");
-    console.log(dados2);
-
-    const options2 = dados2.data.forEach((item) => {
-      const option2 = new Option(item.ds_nome_servico, item.id_servico);
-      servico.appendChild(option2);
-    });*/
   } catch (err) {
     console.log(err);
   }
@@ -179,14 +172,17 @@ function idCliente() {
 }
 
 function buscarValor() {
-  try {
-    const dados2 = axios.get("http://localhost:8090/servicos");
-    console.log(dados2);
+  preco.options.length = 0;
+  let idServico = servico.value;
 
+  try {
+    const dados2 = await axios.get(
+      "http://localhost:8090/servico/" + idServico
+    );
+    console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
-      if (servico.value == item.ds_nome_servico) {
-        document.getElementById("preco").value = item.ds_preco;
-      }
+      const option2 = new Option(item.ds_preco, item.id_servico);
+      document.getElementById('preco').value = option2.item.ds_preco
     });
   } catch (err) {
     console.log(err);
@@ -211,10 +207,9 @@ lavaRapido.addEventListener("change", async function () {
   }
 });
 
-servico.addEventListener("selectionchange", buscarValor);
+servico.addEventListener("change", buscarValor);
 
 btnCadastro.addEventListener("click", enviarFormulario);
 
 popularTabela();
 popularSelect();
-//console.log(lavaRapido.options[].value);
