@@ -64,7 +64,7 @@ async function enviarFormulario(event) {
     await axios.post(`http://localhost:8090/agenda${id_agendamento}`, agendamento);
 
     alert("Agendamento Atualizado com sucesso");
-    popularTabela();
+    preencheAgendamento();
   } else {
     alert("Favor preencher todos os campos");
   }

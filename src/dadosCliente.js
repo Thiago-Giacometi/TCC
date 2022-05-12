@@ -60,11 +60,10 @@ async function enviarFormulario(event) {
       telefone.value,
       sexo.value
     );
-    console.log(cliente);
-
     await axios.put(`http://localhost:8090/clientes/${id_cliente}`, cliente);
 
     alert("Cadastro atualizado com sucesso");
+    preencheCliente();
   } else {
     alert("Favor preencher todos os campos");
   }
