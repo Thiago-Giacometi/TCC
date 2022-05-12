@@ -20,20 +20,26 @@ function idCliente() {
     return usuario.id_cliente || alert("Realizar Login Novamente!");
   }
 }
+
 let id_cliente = idCliente();
 
-function preencheCliente() {
+async function preencheCliente() {
   const storage = window.localStorage.getItem("usuario");
 
   if (!storage) {
     window.location.href = "login.html";
-  } else {
-    const usuario = JSON.parse(storage);
-    document.getElementById("nome").value = usuario.ds_nome;
-    document.getElementById("email").value = usuario.ds_email;
-    document.getElementById("senha").value = usuario.ds_senha;
-    document.getElementById("cpf").value = usuario.ds_cpf;
-    document.getElementById("telefone").value = usuario.ds_telefone;
+  }
+  try {
+    const dados2 = await axios.get(
+      "http://localhost:8090/clientes/" + id_cliente
+    );
+    document.getElementById("nome").value = dados2.data[0].ds_nome;
+    document.getElementById("email").value = dados2.data[0].ds_email;
+    document.getElementById("senha").value = dados2.data[0].ds_senha;
+    document.getElementById("cpf").value = dados2.data[0].ds_cpf;
+    document.getElementById("telefone").value = dados2.data[0].ds_telefone;
+  } catch (err) {
+    console.log(err);
   }
 }
 
@@ -61,25 +67,6 @@ async function enviarFormulario(event) {
     alert("Cadastro atualizado com sucesso");
   } else {
     alert("Favor preencher todos os campos");
-  }
-}
-
-async function updateLocalStorage(event) {
-  event.preventDefault();
-  try {
-    const dados = await axios.get(
-      "http://localhost:8090/clientes/" + id_cliente,
-      {
-        ds_email: email.value,
-        ds_senha: senha.value,
-      }
-    );
-
-    delete dados.data.ds_senha;
-
-    window.localStorage.setItem("usuario", JSON.stringify(dados.data));
-  } catch (err) {
-    alert("Usuário não existe");
   }
 }
 

@@ -25,18 +25,9 @@ async function deletarAgendamento(id_agendamento) {
   }
 }
 
-async function editarAgendamento(id_agendamento) {
-  try {
-    await axios.put(`http://localhost:8090/agenda/${id_agendamento}`);
-
-    alert("Agendamento deletado com sucesso");
-
-    popularTabela();
-  } catch (err) {
-    console.log(err);
-  }
-  JSON.stringify(id_agendamento);
-  window.localStorage.setItem(id_agendamento);
+function editarAgendamento(id_agendamento) {
+  window.localStorage.setItem("idAgendamento", JSON.stringify(id_agendamento));
+  window.location.href = "clienteEditAgendamento.html"
 }
 
 async function enviarFormulario(event) {
