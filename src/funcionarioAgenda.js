@@ -40,19 +40,19 @@ async function popularTabela() {
       modo.innerHTML = item.modo;
 
       let rua = linha.insertCell(9);
-      rua.innerHTML = item.modo;
+      rua.innerHTML = item.tb_endereco_cliente.ds_rua;
 
       let numero = linha.insertCell(10);
-      numero.innerHTML = item.modo;
+      numero.innerHTML = item.tb_endereco_cliente.ds_numero;
 
       let bairro = linha.insertCell(11);
-      bairro.innerHTML = item.modo;
+      bairro.innerHTML = item.tb_endereco_cliente.ds_bairro;
 
       let cidade = linha.insertCell(12);
-      cidade.innerHTML = item.modo;
+      cidade.innerHTML = item.tb_endereco_cliente.ds_cidade;
 
       let uf = linha.insertCell(13);
-      uf.innerHTML = item.modo;
+      uf.innerHTML = item.tb_endereco_cliente.ds_uf;
     });
   } catch (err) {
     console.log(err);
