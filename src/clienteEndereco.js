@@ -26,8 +26,11 @@ async function deletarEndereco(id_endereco_cliente) {
 }
 
 function editarAgendamento(id_endereco_cliente) {
-  window.localStorage.setItem("idEndereco", JSON.stringify(id_endereco_cliente));
-  window.location.href = "clienteEditEnderecos.html";
+  window.localStorage.setItem(
+    "idEndereco",
+    JSON.stringify(id_endereco_cliente)
+  );
+  window.location.href = "clientEditEnderecos.html";
 }
 
 async function enviarFormulario(event) {
@@ -50,7 +53,7 @@ async function enviarFormulario(event) {
       cidade.value,
       uf.value,
       cep.value,
-      id_cliente,
+      id_cliente
     );
     console.log(endereco);
 
@@ -71,7 +74,8 @@ async function popularTabela() {
   table.innerHTML = "";
   try {
     const dados = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/clientesEndereco/" + idCliente()
+      "https://still-gorge-45462.herokuapp.com/clientesEnderecoCliente/" +
+        idCliente()
     );
     console.log(dados);
 
