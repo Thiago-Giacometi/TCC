@@ -53,7 +53,7 @@ async function enviarFormulario(event) {
       lavaRapido.value,
       servico.value,
       preco.value,
-      endereco.value,
+      endereco.value
     );
     console.log(agendamento);
 
@@ -82,7 +82,8 @@ async function popularSelect() {
     });
 
     const dados1 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/clientesEndereco"
+      "https://still-gorge-45462.herokuapp.com/clientesEnderecoCliente/" +
+        idCliente()
     );
     console.log(dados1);
 
@@ -197,7 +198,7 @@ async function buscarServico() {
   try {
     const dados2 = await axios.get(
       "https://still-gorge-45462.herokuapp.com/servicosLavaRapido/" +
-      idLavaRapido
+        idLavaRapido
     );
     console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
@@ -207,7 +208,7 @@ async function buscarServico() {
   } catch (err) {
     console.log(err);
   }
-};
+}
 
 lavaRapido.addEventListener("change", buscarServico);
 
