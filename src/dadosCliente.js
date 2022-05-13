@@ -30,7 +30,7 @@ async function preencheCliente() {
   }
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/clientes/" + id_cliente
+      "https://still-gorge-45462.herokuapp.com/clientes/" + id_cliente
     );
     document.getElementById("nome").value = dados2.data[0].ds_nome;
     document.getElementById("email").value = dados2.data[0].ds_email;
@@ -59,7 +59,10 @@ async function enviarFormulario(event) {
       telefone.value,
       sexo.value
     );
-    await axios.put(`http://localhost:8090/clientes/${id_cliente}`, cliente);
+    await axios.put(
+      `https://still-gorge-45462.herokuapp.com/clientes/${id_cliente}`,
+      cliente
+    );
 
     alert("Cadastro atualizado com sucesso");
     preencheCliente();

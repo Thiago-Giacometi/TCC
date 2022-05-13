@@ -14,7 +14,7 @@ let id_cliente;
 async function deletarEndereco(id_endereco_cliente) {
   try {
     await axios.delete(
-      `http://localhost:8090/clientesEndereco/${id_endereco_cliente}`
+      `https://still-gorge-45462.herokuapp.com/clientesEndereco/${id_endereco_cliente}`
     );
 
     alert("Endereço deletado com sucesso");
@@ -49,7 +49,10 @@ async function enviarFormulario(event) {
     );
     console.log(endereco);
 
-    await axios.post("http://localhost:8090/clientesEndereco", endereco);
+    await axios.post(
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco",
+      endereco
+    );
 
     alert("Endereço cadastrado com sucesso");
     popularTabela();
@@ -62,7 +65,7 @@ async function popularTabela() {
   table.innerHTML = "";
   try {
     const dados = await axios.get(
-      "http://localhost:8090/clientesEndereco/" + idCliente()
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco/" + idCliente()
     );
     console.log(dados);
 

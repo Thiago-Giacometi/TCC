@@ -2,7 +2,9 @@ let table = document.getElementById("table");
 
 async function deletarAgendamento(id_agendamento) {
   try {
-    await axios.delete(`http://localhost:8090/agenda/${id_agendamento}`);
+    await axios.delete(
+      `https://still-gorge-45462.herokuapp.com/agenda/${id_agendamento}`
+    );
 
     alert("Agendamento deletado com sucesso");
 
@@ -15,7 +17,9 @@ async function deletarAgendamento(id_agendamento) {
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/agenda");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/agenda"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

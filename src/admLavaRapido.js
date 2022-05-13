@@ -13,7 +13,9 @@ let table = document.getElementById("table");
 
 async function deletarLavaRapido(id_lava_rapido) {
   try {
-    await axios.delete(`http://localhost:8090/lavaRapido/${id_lava_rapido}`);
+    await axios.delete(
+      `https://still-gorge-45462.herokuapp.com/lavaRapido/${id_lava_rapido}`
+    );
 
     alert("Lava Rápido deletado com sucesso");
 
@@ -24,14 +26,14 @@ async function deletarLavaRapido(id_lava_rapido) {
 }
 
 function limparCampos() {
-  document.getElementById("nome").value = '';
-  document.getElementById("cep").value = '';
-  document.getElementById("bairro").value = '';
-  document.getElementById("uf").value = '';
-  document.getElementById("cidade").value = '';
-  document.getElementById("rua").value = '';
-  document.getElementById("numero").value = '';
-  document.getElementById("complemento").value = '';
+  document.getElementById("nome").value = "";
+  document.getElementById("cep").value = "";
+  document.getElementById("bairro").value = "";
+  document.getElementById("uf").value = "";
+  document.getElementById("cidade").value = "";
+  document.getElementById("rua").value = "";
+  document.getElementById("numero").value = "";
+  document.getElementById("complemento").value = "";
 }
 
 async function enviarFormulario(event) {
@@ -57,7 +59,10 @@ async function enviarFormulario(event) {
     );
     console.log(lavaRapido);
 
-    await axios.post("http://localhost:8090/lavaRapido", lavaRapido);
+    await axios.post(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido",
+      lavaRapido
+    );
 
     alert("Lava Rápido cadastrado com sucesso");
     limparCampos();
@@ -70,7 +75,9 @@ async function enviarFormulario(event) {
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/lavaRapido");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

@@ -4,7 +4,9 @@ let userName = document.getElementById("username");
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/agenda");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/agenda"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

@@ -3,7 +3,9 @@ let table = document.getElementById("table");
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/clientes");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/clientes"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

@@ -22,7 +22,7 @@ async function preencheAgendamento() {
   }
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/agenda/" + id_agendamento
+      "https://still-gorge-45462.herokuapp.com/agenda/" + id_agendamento
     );
     console.log(dados2);
     document.getElementById("veiculo").value = dados2.data[0].ds_modelo;
@@ -61,7 +61,7 @@ async function enviarFormulario(event) {
     console.log(agendamento);
 
     await axios.put(
-      `http://localhost:8090/agenda/${id_agendamento}`,
+      `https://still-gorge-45462.herokuapp.com/agenda/${id_agendamento}`,
       agendamento
     );
 
@@ -86,7 +86,9 @@ function idCliente() {
 
 async function popularSelect() {
   try {
-    const dados = await axios.get("http://localhost:8090/lavaRapido");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido"
+    );
     console.log(dados);
 
     const options = dados.data.forEach((item) => {
@@ -94,7 +96,9 @@ async function popularSelect() {
       lavaRapido.appendChild(option);
     });
 
-    const dados1 = await axios.get("http://localhost:8090/clientesEndereco");
+    const dados1 = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco"
+    );
     console.log(dados1);
 
     const options1 = dados1.data.forEach((item) => {
@@ -114,7 +118,7 @@ async function buscarValor() {
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servicosPreco/" + idServico
+      "https://still-gorge-45462.herokuapp.com/servicosPreco/" + idServico
     );
     console.log(dados2);
     const preco1 = dados2.data[0].ds_preco;
@@ -130,7 +134,8 @@ lavaRapido.addEventListener("change", async function () {
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servicosLavaRapido/" + idLavaRapido
+      "https://still-gorge-45462.herokuapp.com/servicosLavaRapido/" +
+        idLavaRapido
     );
     console.log(dados2);
     const options2 = dados2.data.forEach((item) => {

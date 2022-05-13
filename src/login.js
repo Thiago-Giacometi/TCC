@@ -7,10 +7,13 @@ async function login(event) {
 
   if (email.value != "" && senha.value != "") {
     try {
-      const dados = await axios.post("http://localhost:8090/login", {
-        ds_email: email.value,
-        ds_senha: senha.value,
-      });
+      const dados = await axios.post(
+        "https://still-gorge-45462.herokuapp.com/login",
+        {
+          ds_email: email.value,
+          ds_senha: senha.value,
+        }
+      );
 
       delete dados.data.ds_senha;
 

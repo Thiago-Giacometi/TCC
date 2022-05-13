@@ -12,7 +12,9 @@ let table = document.getElementById("table");
 
 async function deletarServico(id_funcionario) {
   try {
-    await axios.delete(`http://localhost:8090/funcionario/${id_funcionario}`);
+    await axios.delete(
+      `https://still-gorge-45462.herokuapp.com/funcionario/${id_funcionario}`
+    );
 
     alert("Cadastro do funcionário deletado com sucesso");
 
@@ -23,11 +25,11 @@ async function deletarServico(id_funcionario) {
 }
 
 function limparCampos() {
-  document.getElementById("nome").value = '';
-  document.getElementById("email").value = '';
-  document.getElementById("cpf").value = '';
-  document.getElementById("senha").value = '';
-  document.getElementById("senhaConfirm").value = '';
+  document.getElementById("nome").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("cpf").value = "";
+  document.getElementById("senha").value = "";
+  document.getElementById("senhaConfirm").value = "";
   document.getElementById("lavaRapido").value = null;
 }
 
@@ -55,7 +57,10 @@ async function enviarFormulario(event) {
     }
     console.log(funcionario);
 
-    await axios.post("http://localhost:8090/funcionario", funcionario);
+    await axios.post(
+      "https://still-gorge-45462.herokuapp.com/funcionario",
+      funcionario
+    );
 
     alert("Funcionário cadastrado com sucesso");
     popularTabela();
@@ -67,7 +72,9 @@ async function enviarFormulario(event) {
 
 async function popularSelect() {
   try {
-    const dados = await axios.get("http://localhost:8090/lavaRapido");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido"
+    );
     console.log(dados);
 
     const options = dados.data.forEach((item) => {
@@ -82,7 +89,9 @@ async function popularSelect() {
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/funcionario");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/funcionario"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

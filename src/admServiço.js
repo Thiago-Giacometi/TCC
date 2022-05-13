@@ -9,7 +9,9 @@ let lavaRapido = document.getElementById("lavaRapidos");
 
 async function deletarServico(id_servico) {
   try {
-    await axios.delete(`http://localhost:8090/servicos/${id_servico}`);
+    await axios.delete(
+      `https://still-gorge-45462.herokuapp.com/servicos/${id_servico}`
+    );
 
     alert("Serviço deletado com sucesso");
 
@@ -35,7 +37,10 @@ async function enviarFormulario(event) {
     );
     console.log(servico);
 
-    await axios.post("http://localhost:8090/servicos", servico);
+    await axios.post(
+      "https://still-gorge-45462.herokuapp.com/servicos",
+      servico
+    );
 
     alert("Serviço cadastrado com sucesso");
     popularTabela();
@@ -46,7 +51,9 @@ async function enviarFormulario(event) {
 
 async function popularSelect() {
   try {
-    const dados = await axios.get("http://localhost:8090/lavaRapido");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido"
+    );
     console.log(dados);
 
     const options = dados.data.forEach((item) => {
@@ -61,7 +68,9 @@ async function popularSelect() {
 async function popularTabela() {
   table.innerHTML = "";
   try {
-    const dados = await axios.get("http://localhost:8090/servicos");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/servicos"
+    );
     console.log(dados);
 
     dados.data.forEach((item) => {

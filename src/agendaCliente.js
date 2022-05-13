@@ -15,7 +15,9 @@ let id_cliente;
 
 async function deletarAgendamento(id_agendamento) {
   try {
-    await axios.delete(`http://localhost:8090/agenda/${id_agendamento}`);
+    await axios.delete(
+      `https://still-gorge-45462.herokuapp.com/agenda/${id_agendamento}`
+    );
 
     alert("Agendamento deletado com sucesso");
 
@@ -54,7 +56,10 @@ async function enviarFormulario(event) {
     );
     console.log(agendamento);
 
-    await axios.post("http://localhost:8090/agenda", agendamento);
+    await axios.post(
+      "https://still-gorge-45462.herokuapp.com/agenda",
+      agendamento
+    );
 
     alert("Agendamento cadastrado com sucesso");
     popularTabela();
@@ -65,7 +70,9 @@ async function enviarFormulario(event) {
 
 async function popularSelect() {
   try {
-    const dados = await axios.get("http://localhost:8090/lavaRapido");
+    const dados = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/lavaRapido"
+    );
     console.log(dados);
 
     const options = dados.data.forEach((item) => {
@@ -73,7 +80,9 @@ async function popularSelect() {
       lavaRapido.appendChild(option);
     });
 
-    const dados1 = await axios.get("http://localhost:8090/clientesEndereco");
+    const dados1 = await axios.get(
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco"
+    );
     console.log(dados1);
 
     const options1 = dados1.data.forEach((item) => {
@@ -92,7 +101,7 @@ async function popularTabela() {
   table.innerHTML = "";
   try {
     const dados = await axios.get(
-      "http://localhost:8090/agendaCliente/" + idCliente()
+      "https://still-gorge-45462.herokuapp.com/agendaCliente/" + idCliente()
     );
     console.log(dados);
 
@@ -167,7 +176,7 @@ async function buscarValor() {
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servicosPreco/" + idServico
+      "https://still-gorge-45462.herokuapp.com/servicosPreco/" + idServico
     );
     console.log(dados2);
     const preco1 = dados2.data[0].ds_preco;
@@ -183,7 +192,8 @@ lavaRapido.addEventListener("change", async function () {
 
   try {
     const dados2 = await axios.get(
-      "http://localhost:8090/servicosLavaRapido/" + idLavaRapido
+      "https://still-gorge-45462.herokuapp.com/servicosLavaRapido/" +
+        idLavaRapido
     );
     console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
