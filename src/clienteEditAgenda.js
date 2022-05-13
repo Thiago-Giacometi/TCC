@@ -47,10 +47,7 @@ async function enviarFormulario(event) {
     hora.value != "" &&
     veiculo.value != "" &&
     placa.value != "" &&
-    data.value != "" &&
-    lavaRapido.value != "null" &&
-    endereco.value != "null" &&
-    servico.value != "null" 
+    data.value != ""
   ) {
     let agendamento = new Agendamento(
       veiculo.value,
@@ -107,8 +104,8 @@ async function popularSelect() {
     console.log(err);
   }
 }
-
-popularSelect();
 preencheAgendamento();
+popularSelect();
+
 btnAtualizar.addEventListener("click", enviarFormulario);
 

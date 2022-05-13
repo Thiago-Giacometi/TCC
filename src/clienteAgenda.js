@@ -11,7 +11,7 @@ let preco = document.getElementById("preco");
 let modo = document.getElementById("modo");
 let btnCadastro = document.getElementById("cadastro");
 let table = document.getElementById("table");
-let id_cliente;
+let id_cliente = idCliente();
 
 async function deletarAgendamento(id_agendamento) {
   try {
@@ -49,7 +49,7 @@ async function enviarFormulario(event) {
       data.value,
       hora.value,
       modo.value,
-      (id_cliente = idCliente()),
+      id_cliente,
       lavaRapido.value,
       servico.value,
       preco.value,
@@ -82,7 +82,7 @@ async function popularSelect() {
     });
 
     const dados1 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/clientesEndereco"
+      "https://still-gorge-45462.herokuapp.com/clientesEnderecoCliente/" + id_cliente
     );
     console.log(dados1);
 

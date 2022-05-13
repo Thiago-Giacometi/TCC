@@ -25,12 +25,12 @@ async function preencheLavaRapido() {
     console.log(dados2);
     document.getElementById("nome").value = dados2.data[0].ds_nome;
     document.getElementById("cep").value = dados2.data[0].ds_cep;
-    document.getElementById("bairro").value = dados2.dados[0].ds_bairro;
+    document.getElementById("bairro").value = dados2.data[0].ds_bairro;
     document.getElementById("uf").value = dados2.data[0].ds_uf;
     document.getElementById("cidade").value = dados2.data[0].ds_cidade;
     document.getElementById("rua").value = dados2.data[0].ds_rua;
-    document.getElementById("numero").value = dados2.dados[0].ds_numero;
-    document.getElementById("complemento").value = dados2.dados[0].ds_complemento;
+    document.getElementById("numero").value = dados2.data[0].ds_numero;
+    document.getElementById("complemento").value = dados2.data[0].ds_complemento;
   } catch (err) {
     console.log(err);
   }

@@ -21,7 +21,7 @@ async function preencheEndereco() {
   }
   try {
     const dados2 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/enderecoCliente/" + id_endereco
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco/" + id_endereco
     );
     console.log(dados2);
     document.getElementById("nome").value = dados2.data[0].ds_tipo_endereco;
@@ -67,7 +67,7 @@ async function enviarFormulario(event) {
     );
 
     alert("Endereço atualizado com sucesso");
-    popularTabela();
+    window.location.href = "clienteEnderecos.html"
   } else {
     alert("Favor preencher todos os campos");
   }
