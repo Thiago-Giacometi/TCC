@@ -3,7 +3,7 @@ import Agendamento from "../class/agendamento.js";
 let lavaRapido;
 let veiculo = document.getElementById("veiculo");
 let placa = document.getElementById("placa");
-let endereco = document.getElementById("endereco");
+let endereco;
 let data = document.getElementById("data");
 let hora = document.getElementById("hora");
 let servico;
@@ -35,7 +35,8 @@ async function preencheAgendamento() {
     document.getElementById("endereco").value = dados2.data[0].tb_endereco_cliente.ds_tipo_endereco;
     document.getElementById("preco").value = dados2.data[0].tb_servico.ds_preco;
     lavaRapido = dados2.data[0].tb_lava_rapido.id_lavarapido;
-    servico = dados2.data[0].tb_servico.id_servico
+    servico = dados2.data[0].tb_servico.id_servico;
+    endereco = dados2.data[0].tb_endereco_cliente.id_endereco_cliente;
   } catch (err) {
     console.log(err);
   }
@@ -59,7 +60,7 @@ async function enviarFormulario(event) {
       lavaRapido,
       servico,
       preco.value,
-      endereco.value,
+      endereco,
     );
     console.log(agendamento);
 
@@ -86,26 +87,7 @@ function idCliente() {
   }
 }
 
-async function popularSelect() {
-  try {
-    const dados1 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/clientesEndereco"
-    );
-    console.log(dados1);
-
-    const options1 = dados1.data.forEach((item) => {
-      const option1 = new Option(
-        item.ds_tipo_endereco,
-        item.id_endereco_cliente
-      );
-      endereco.appendChild(option1);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
 preencheAgendamento();
-popularSelect();
 
 btnAtualizar.addEventListener("click", enviarFormulario);
 

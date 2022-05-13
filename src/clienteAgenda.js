@@ -64,6 +64,7 @@ async function enviarFormulario(event) {
 
     alert("Agendamento cadastrado com sucesso");
     popularTabela();
+    limparCampos();
   } else {
     alert("Favor preencher todos os campos");
   }
@@ -102,7 +103,7 @@ async function popularTabela() {
   table.innerHTML = "";
   try {
     const dados = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/agendaCliente/" + idCliente()
+      "https://still-gorge-45462.herokuapp.com/agendaCliente/" + id_cliente
     );
     console.log(dados);
 
@@ -208,6 +209,18 @@ async function buscarServico() {
     console.log(err);
   }
 };
+
+function limparCampos() {
+  document.getElementById("lavaRapido").value = null;
+  document.getElementById("veiculo").value = "";
+  document.getElementById("placa").value = "";
+  document.getElementById("endereco").value = null;
+  document.getElementById("data").value = "";
+  document.getElementById("hora").value = "08:00";
+  document.getElementById("servico").value = null;
+  document.getElementById("preco").value = ""
+  document.getElementById("modo").value = "Local";
+}
 
 lavaRapido.addEventListener("change", buscarServico);
 

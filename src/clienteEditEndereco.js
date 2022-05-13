@@ -21,12 +21,8 @@ async function preencheEndereco() {
   }
   try {
     const dados2 = await axios.get(
-<<<<<<< HEAD
-      "https://still-gorge-45462.herokuapp.com/clientesEndereco/" + id_endereco
-=======
       "https://still-gorge-45462.herokuapp.com/clientesEndereco/" +
         id_endereco_cliente
->>>>>>> 8488f3cfe4e0e5ae506e42ef4e11da2f342ccea7
     );
     console.log(dados2);
     document.getElementById("nome").value = dados2.data[0].ds_tipo_endereco;
