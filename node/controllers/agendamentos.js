@@ -12,6 +12,15 @@ function buscarAgendamentoCliente(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarUmAgendamento(req, res) {
+  AgendamentoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_agendamento: req.params.id_agendamento,
+    },
+  }).then((result) => res.json(result))
+}
+
 function buscarAgendamento(req, res) {
   AgendamentoRepository.findAll({
     include: { all: true, nested: true },
@@ -65,4 +74,11 @@ async function deletarAgendamento(req, res) {
   AgendamentoRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addAgendamento, buscarAgendamento, attAgendamento, deletarAgendamento, buscarAgendamentoCliente }
+export default {
+  addAgendamento,
+  buscarAgendamento,
+  attAgendamento,
+  deletarAgendamento,
+  buscarAgendamentoCliente,
+  buscarUmAgendamento,
+}

@@ -16,8 +16,10 @@ router.get('/', (req, res) => {
 
 router.post('/agenda', agendamento.addAgendamento)
 router.get('/agenda', agendamento.buscarAgendamento)
+router.get('/agenda/:id_agendamento', agendamento.buscarUmAgendamento)
 router.put('/agenda/:id_agendamento', agendamento.attAgendamento)
 router.delete('/agenda/:id_agendamento', agendamento.deletarAgendamento)
+router.get('/agendaCliente/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
 router.post('/clientes', clientes.addCliente)
 router.get('/clientes', clientes.buscaTodosClientes)
@@ -44,8 +46,6 @@ router.post('/servicos', servicos.addServico)
 router.get('/servicos', servicos.buscaTodosServicos)
 router.put('/servicos/:id_servico', servicos.attServico)
 router.delete('/servicos/:id_servico', servicos.deletarServico)
-
-router.get('/agenda/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
 router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
 

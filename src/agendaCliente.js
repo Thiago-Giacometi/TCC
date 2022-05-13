@@ -27,7 +27,7 @@ async function deletarAgendamento(id_agendamento) {
 
 function editarAgendamento(id_agendamento) {
   window.localStorage.setItem("idAgendamento", JSON.stringify(id_agendamento));
-  window.location.href = "clienteEditAgendamento.html"
+  window.location.href = "clienteEditAgendamento.html";
 }
 
 async function enviarFormulario(event) {
@@ -42,7 +42,7 @@ async function enviarFormulario(event) {
     servico.value != "null"
   ) {
     let agendamento = new Agendamento(
-      modo.value,
+      veiculo.value,
       placa.value,
       data.value,
       hora.value,
@@ -92,7 +92,7 @@ async function popularTabela() {
   table.innerHTML = "";
   try {
     const dados = await axios.get(
-      "http://localhost:8090/agenda/" + idCliente()
+      "http://localhost:8090/agendaCliente/" + idCliente()
     );
     console.log(dados);
 

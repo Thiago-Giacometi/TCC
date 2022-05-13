@@ -8,6 +8,7 @@ let senha = document.getElementById("senha");
 let senhaConfirm = document.getElementById("senhaConfirm");
 let sexo = document.getElementById("sexo");
 let btnAtualizar = document.getElementById("cadastro");
+let id_cliente = idCliente();
 
 function idCliente() {
   const storage = window.localStorage.getItem("usuario");
@@ -20,8 +21,6 @@ function idCliente() {
     return usuario.id_cliente || alert("Realizar Login Novamente!");
   }
 }
-
-let id_cliente = idCliente();
 
 async function preencheCliente() {
   const storage = window.localStorage.getItem("usuario");
