@@ -25,13 +25,14 @@ async function preencheAgendamento() {
       "https://still-gorge-45462.herokuapp.com/agenda/" + id_agendamento
     );
     console.log(dados2);
+    document.getElementById("servico").value = dados2.data[0].tb_servico.ds_nome_servico
     document.getElementById("veiculo").value = dados2.data[0].ds_modelo;
     document.getElementById("placa").value = dados2.data[0].ds_placa;
     document.getElementById("lavaRapido").value = dados2.data[0].tb_lava_rapido.ds_nome;
     document.getElementById("data").value = dados2.data[0].dt_agendamento;
     document.getElementById("hora").value = dados2.data[0].hr_agendamento;
     document.getElementById("modo").value = dados2.data[0].modo;
-    document.getElementById("servico").value = dados2.data[0].tb_servico.ds_nome_servico;
+    
     document.getElementById("endereco").value = dados2.data[0].tb_endereco_cliente.ds_tipo_endereco;
     document.getElementById("preco").value = dados2.data[0].tb_servico.ds_preco;
   } catch (err) {
@@ -152,7 +153,6 @@ async function buscarServico() {
 
 popularSelect();
 preencheAgendamento();
-
 lavaRapido.addEventListener("change", buscarServico);
 btnAtualizar.addEventListener("click", enviarFormulario);
 servico.addEventListener("change", buscarValor);
