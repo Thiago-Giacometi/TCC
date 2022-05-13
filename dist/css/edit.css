@@ -79,9 +79,10 @@ body {
 }
 
 .espacoForm{
-  padding-left: 550px;
-  padding-right: 750px;
+  padding-left: auto;
+  padding-right: auto;
   padding-top: 75px;
+  margin-left: 35%;
 
 }
 
