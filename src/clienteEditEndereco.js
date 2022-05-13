@@ -11,7 +11,7 @@ let complemento = document.getElementById("complemento");
 let btnAtualizar = document.getElementById("atualizar");
 let id_cliente = idCliente();
 const id_endereco_string = window.localStorage.getItem("idEndereco");
-let id_endereco = id_endereco_string.replace(/"/g, "");
+let id_endereco_cliente = id_endereco_string.replace(/"/g, "");
 
 async function preencheEndereco() {
   const storage = window.localStorage.getItem("usuario");
@@ -21,7 +21,8 @@ async function preencheEndereco() {
   }
   try {
     const dados2 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/enderecoCliente/" + id_endereco
+      "https://still-gorge-45462.herokuapp.com/clientesEndereco/" +
+        id_endereco_cliente
     );
     console.log(dados2);
     document.getElementById("nome").value = dados2.data[0].ds_tipo_endereco;
@@ -31,7 +32,8 @@ async function preencheEndereco() {
     document.getElementById("cidade").value = dados2.data[0].ds_cidade;
     document.getElementById("rua").value = dados2.data[0].ds_rua;
     document.getElementById("numero").value = dados2.data[0].ds_numero;
-    document.getElementById("complemento").value = dados2.data[0].ds_complemento;
+    document.getElementById("complemento").value =
+      dados2.data[0].ds_complemento;
   } catch (err) {
     console.log(err);
   }
@@ -57,12 +59,12 @@ async function enviarFormulario(event) {
       cidade.value,
       uf.value,
       cep.value,
-      id_cliente,
+      id_cliente
     );
     console.log(endereco);
 
     await axios.put(
-      `https://still-gorge-45462.herokuapp.com/clientesEndereco/${id_endereco}`,
+      `https://still-gorge-45462.herokuapp.com/clientesEndereco/${id_endereco_cliente}`,
       endereco
     );
 
@@ -87,4 +89,3 @@ function idCliente() {
 
 preencheEndereco();
 btnAtualizar.addEventListener("click", enviarFormulario);
-
