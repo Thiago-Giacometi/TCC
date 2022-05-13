@@ -21,6 +21,11 @@ async function deletarServico(id_servico) {
   }
 }
 
+function editarServico(id_servico) {
+  window.localStorage.setItem("idServico", JSON.stringify(id_servico));
+  window.location.href = "admEditServico.html";
+}
+
 async function enviarFormulario(event) {
   console.log(event);
   if (
@@ -89,7 +94,7 @@ async function popularTabela() {
       descricao.innerHTML = item.ds_servico;
 
       let editar = linha.insertCell(4);
-      editar.innerHTML = `<button  class='button is-info is-small'>Editar</button>`;
+      editar.innerHTML = `<button value="${item.id_servico}" class='button is-info is-small editar'>Editar</button>`;
 
       let excluir = linha.insertCell(5);
       excluir.innerHTML = `<button value="${item.id_servico}" class='button is-danger is-small deletar'>Excluir</button>`;
@@ -98,6 +103,12 @@ async function popularTabela() {
     document.querySelectorAll(".deletar").forEach((button) => {
       button.addEventListener("click", (event) =>
         deletarServico(event.target.value)
+      );
+    });
+
+    document.querySelectorAll(".deletar").forEach((button) => {
+      button.addEventListener("click", (event) =>
+        editarServico(event.target.value)
       );
     });
   } catch (err) {

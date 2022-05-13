@@ -27,10 +27,13 @@ async function preencheAgendamento() {
     console.log(dados2);
     document.getElementById("veiculo").value = dados2.data[0].ds_modelo;
     document.getElementById("placa").value = dados2.data[0].ds_placa;
-    //document.getElementById("endereco").value = dados2.dados[0].;
+    document.getElementById("lavaRapido").value = dados2.data[0].tb_lava_rapido.ds_nome;
     document.getElementById("data").value = dados2.data[0].dt_agendamento;
     document.getElementById("hora").value = dados2.data[0].hr_agendamento;
     document.getElementById("modo").value = dados2.data[0].modo;
+    document.getElementById("servico").value = dados2.data[0].tb_servico.ds_nome_servico;
+    document.getElementById("endereco").value = dados2.data[0].tb_endereco_cliente.ds_tipo_endereco;
+    document.getElementById("preco").value = dados2.data[0].tb_servico.ds_preco;
   } catch (err) {
     console.log(err);
   }
@@ -44,8 +47,8 @@ async function enviarFormulario(event) {
     placa.value != "" &&
     data.value != "" &&
     lavaRapido.value != "null" &&
-    //endereco.value != "null" &&
-    servico.value != "null"
+    endereco.value != "null" &&
+    servico.value != "null" 
   ) {
     let agendamento = new Agendamento(
       veiculo.value,
@@ -56,7 +59,8 @@ async function enviarFormulario(event) {
       id_cliente,
       lavaRapido.value,
       servico.value,
-      preco.value
+      preco.value,
+      endereco.value,
     );
     console.log(agendamento);
 
@@ -104,7 +108,7 @@ async function popularSelect() {
     const options1 = dados1.data.forEach((item) => {
       const option1 = new Option(
         item.ds_tipo_endereco,
-        item.id_cliente_endereco
+        item.id_endereco_cliente
       );
       endereco.appendChild(option1);
     });
@@ -128,8 +132,7 @@ async function buscarValor() {
   }
 }
 
-lavaRapido.addEventListener("change", async function () {
-  servico.options.length = 1;
+async function buscarServico() {
   let idLavaRapido = lavaRapido.value;
 
   try {
@@ -145,10 +148,11 @@ lavaRapido.addEventListener("change", async function () {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
 popularSelect();
 preencheAgendamento();
 
+lavaRapido.addEventListener("change", buscarServico);
 btnAtualizar.addEventListener("click", enviarFormulario);
 servico.addEventListener("change", buscarValor);

@@ -27,24 +27,28 @@ async function enviarFormulario(event) {
     senha.value != "" &&
     senhaConfirm.value != ""
   ) {
-    let cliente = new Cliente(
-      nome.value,
-      cpf.value,
-      email.value,
-      senha.value,
-      telefone.value,
-      sexo.value
-    );
-    console.log(cliente);
+    if (senha.value == senhaConfirm.value) {
+      let cliente = new Cliente(
+        nome.value,
+        cpf.value,
+        email.value,
+        senha.value,
+        telefone.value,
+        sexo.value
+      );
+      console.log(cliente);
 
-    await axios.post(
-      "https://still-gorge-45462.herokuapp.com/clientes",
-      cliente
-    );
+      await axios.post(
+        "https://still-gorge-45462.herokuapp.com/clientes",
+        cliente
+      );
 
-    alert("Cadastrado realizado com sucesso");
-    limparCampos();
-    window.location.href = "login.html";
+      alert("Cadastrado realizado com sucesso");
+      limparCampos();
+      window.location.href = "login.html";
+    } else {
+      alert("Senhas diferentes")
+    }
   } else {
     alert("Favor preencher todos os campos");
   }

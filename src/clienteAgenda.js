@@ -40,7 +40,7 @@ async function enviarFormulario(event) {
     placa.value != "" &&
     data.value != "" &&
     lavaRapido.value != "null" &&
-    //endereco.value != "null" &&
+    endereco.value != "null" &&
     servico.value != "null"
   ) {
     let agendamento = new Agendamento(
@@ -52,7 +52,8 @@ async function enviarFormulario(event) {
       (id_cliente = idCliente()),
       lavaRapido.value,
       servico.value,
-      preco.value
+      preco.value,
+      endereco.value,
     );
     console.log(agendamento);
 
@@ -88,7 +89,7 @@ async function popularSelect() {
     const options1 = dados1.data.forEach((item) => {
       const option1 = new Option(
         item.ds_tipo_endereco,
-        item.id_cliente_endereco
+        item.id_endereco_cliente
       );
       endereco.appendChild(option1);
     });
@@ -135,10 +136,13 @@ async function popularTabela() {
       let modo = linha.insertCell(8);
       modo.innerHTML = item.modo;
 
-      let editar = linha.insertCell(9);
+      let endereco = linha.insertCell(9);
+      endereco.innerHTML = item.tb_endereco_cliente.ds_tipo_endereco;
+
+      let editar = linha.insertCell(10);
       editar.innerHTML = `<button value="${item.id_agendamento}" class='button is-info is-small editar'>Editar</button>`;
 
-      let excluir = linha.insertCell(10);
+      let excluir = linha.insertCell(11);
       excluir.innerHTML = `<button value="${item.id_agendamento}" class='button is-danger is-small deletar'>Excluir</button>`;
     });
 
@@ -186,14 +190,14 @@ async function buscarValor() {
   }
 }
 
-lavaRapido.addEventListener("change", async function () {
+async function buscarServico() {
   servico.options.length = 1;
   let idLavaRapido = lavaRapido.value;
 
   try {
     const dados2 = await axios.get(
       "https://still-gorge-45462.herokuapp.com/servicosLavaRapido/" +
-        idLavaRapido
+      idLavaRapido
     );
     console.log(dados2);
     const options2 = dados2.data.forEach((item) => {
@@ -203,7 +207,9 @@ lavaRapido.addEventListener("change", async function () {
   } catch (err) {
     console.log(err);
   }
-});
+};
+
+lavaRapido.addEventListener("change", buscarServico);
 
 servico.addEventListener("change", buscarValor);
 

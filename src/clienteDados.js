@@ -34,9 +34,9 @@ async function preencheCliente() {
     );
     document.getElementById("nome").value = dados2.data[0].ds_nome;
     document.getElementById("email").value = dados2.data[0].ds_email;
-    document.getElementById("senha").value = dados2.data[0].ds_senha;
     document.getElementById("cpf").value = dados2.data[0].ds_cpf;
     document.getElementById("telefone").value = dados2.data[0].ds_telefone;
+    document.getElementById("sexo").value = dados2.data[0].ds_sexo;
   } catch (err) {
     console.log(err);
   }
@@ -51,21 +51,28 @@ async function enviarFormulario(event) {
     senha.value != "" &&
     senhaConfirm.value != ""
   ) {
-    let cliente = new Cliente(
-      nome.value,
-      cpf.value,
-      email.value,
-      senha.value,
-      telefone.value,
-      sexo.value
-    );
-    await axios.put(
-      `https://still-gorge-45462.herokuapp.com/clientes/${id_cliente}`,
-      cliente
-    );
-
-    alert("Cadastro atualizado com sucesso");
-    preencheCliente();
+    if(senha.value == senhaConfirm.value){
+      let cliente = new Cliente(
+        nome.value,
+        cpf.value,
+        email.value,
+        senha.value,
+        telefone.value,
+        sexo.value
+      );
+      await axios.put(
+        `https://still-gorge-45462.herokuapp.com/clientes/${id_cliente}`,
+        cliente
+      );
+  
+      alert("Cadastro atualizado com sucesso");
+      preencheCliente();
+      document.getElementById("senha").value = "";
+      document.getElementById("senhaConfirm").value = "";
+      
+    } else {
+      alert("Senha incorreta")
+    }
   } else {
     alert("Favor preencher todos os campos");
   }

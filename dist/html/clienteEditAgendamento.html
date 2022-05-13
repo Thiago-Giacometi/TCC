@@ -99,7 +99,7 @@
   <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile" id="form">
     <div class="p-1">
       <div class="columns is-variable is-desktop">
-        <div class="column">  
+        <div class="column">
           <div class="espacoForm">
             <h2>Atualizar Agendamento</h2>
             <div class="field">
@@ -107,7 +107,7 @@
               <div class="control">
                 <div class="select">
                   <select id="lavaRapido">
-                    <option hidden value="null">Selecione um lava rápido</option>
+                    
                   </select>
                 </div>
               </div>
@@ -123,54 +123,68 @@
               <div class="control">
                 <div class="select">
                   <select id="endereco">
-                    <option hidden value="null">Selecione um endereço</option>
+                    
                   </select>
                 </div>
-                <label class="label">Data</label>
-                <div class="control">
-                  <input class="input" type="text" id="data">
-                </div>
+              </div>
+              <label class="label">Data</label>
+              <div class="control">
+                <input class="input" type="text" id="data">
+              </div>
 
-                <label class="label">Horário</label>
-                <div class="control">
-                  <input class="input" type="text" id="hora">
+              <label class="label">Horário</label>
+              <div class="control">
+                <div class="select">
+                  <select id="hora">
+                    <option>08:00</option>
+                    <option>09:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                  </select>
                 </div>
-                <label class="label">Serviço</label>
-                <div class="control">
-                  <div class="select">
-                    <select id="servico">
-                      <option hidden value="null">Selecione um serviço</option>
-                    </select>
-                  </div>
+              </div>
+              
+              <label class="label">Serviço</label>
+              <div class="control">
+                <div class="select">
+                  <select id="servico">
+                    
+                  </select>
                 </div>
-                <label class="label">Preço</label>
-                <div class="control">
-                  <input class="input" type="text" disabled id="preco">
+              </div>
+              <label class="label">Preço</label>
+              <div class="control">
+                <input class="input" type="text" disabled id="preco">
+              </div>
+              <label class="label">Modo</label>
+              <div class="control">
+                <div class="select">
+                  <select id="modo">
+                    <option>Local</option>
+                    <option>Leva - Traz</option>
+                  </select>
                 </div>
-                <label class="label">Modo</label>
+              </div>
+              <br>
+              <div class="field is-grouped" id="buttons">
                 <div class="control">
-                  <div class="select">
-                    <select id="modo">
-                      <option>Local</option>
-                      <option>Leva - Traz</option>
-                    </select>
-                  </div>
+                  <button class="button is-link" id="atualizar">Atualizar</button>
                 </div>
                 <br>
-                <div class="field is-grouped" id="buttons">
-                  <div class="control">
-                    <button class="button is-link" id="atualizar">Atualizar</button>
-                  </div>
-                  <br>
-                  <div class="control">
-                    <button class="button is-link is-light">Cancelar</button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
 
 
 </body>

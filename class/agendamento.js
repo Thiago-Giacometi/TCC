@@ -8,7 +8,8 @@ export default class Agendamento {
     id_cliente,
     id_lava_rapido,
     id_servico,
-    id_servico_money
+    id_servico_money,
+    id_endereco
   ) {
     this.ds_modelo = modelo;
     this.ds_placa = placa;
@@ -19,5 +20,6 @@ export default class Agendamento {
     this.tbLavaRapidoIdLavaRapido = id_lava_rapido;
     this.tbServicoIdServico = id_servico;
     this.ds_preco = id_servico_money;
+    this.tbEnderecoClienteIdEnderecoCliente = id_endereco
   }
 }

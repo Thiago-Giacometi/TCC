@@ -38,6 +38,21 @@ async function popularTabela() {
 
       let modo = linha.insertCell(8);
       modo.innerHTML = item.modo;
+
+      let rua = linha.insertCell(9);
+      rua.innerHTML = item.modo;
+
+      let numero = linha.insertCell(10);
+      numero.innerHTML = item.modo;
+
+      let bairro = linha.insertCell(11);
+      bairro.innerHTML = item.modo;
+
+      let cidade = linha.insertCell(12);
+      cidade.innerHTML = item.modo;
+
+      let uf = linha.insertCell(13);
+      uf.innerHTML = item.modo;
     });
   } catch (err) {
     console.log(err);

@@ -24,6 +24,11 @@ async function deletarServico(id_funcionario) {
   }
 }
 
+function editarFuncionario(id_funcionario) {
+  window.localStorage.setItem("idFuncionario", JSON.stringify(id_funcionario));
+  window.location.href = "admEditFuncionario.html";
+}
+
 function limparCampos() {
   document.getElementById("nome").value = "";
   document.getElementById("email").value = "";
@@ -103,22 +108,34 @@ async function popularTabela() {
       let cpf = linha.insertCell(1);
       cpf.innerHTML = item.ds_cpf;
 
-      let lavaRapido = linha.insertCell(2);
-      lavaRapido.innerHTML = item.tb_lava_rapido.ds_nome;
+      let email = linha.insertCell(2);
+      email.innerHTML = item.ds_email;
 
       let senha = linha.insertCell(3);
       senha.innerHTML = item.ds_senha;
 
-      let editar = linha.insertCell(4);
-      editar.innerHTML = `<button  class='button is-info is-small'>Editar</button>`;
+      let lavaRapido = linha.insertCell(4);
+      lavaRapido.innerHTML = item.tb_lava_rapido.ds_nome;
 
-      let excluir = linha.insertCell(5);
+      let funcao = linha.insertCell(5);
+      funcao.innerHTML = item.ds_funcao;
+
+      let editar = linha.insertCell(6);
+      editar.innerHTML = `<button value="${item.id_funcionario}" class='button is-info is-small editar'>Editar</button>`;
+
+      let excluir = linha.insertCell(7);
       excluir.innerHTML = `<button value="${item.id_funcionario}" class='button is-danger is-small deletar'>Excluir</button>`;
     });
 
     document.querySelectorAll(".deletar").forEach((button) => {
       button.addEventListener("click", (event) =>
         deletarServico(event.target.value)
+      );
+    });
+
+    document.querySelectorAll(".editar").forEach((button) => {
+      button.addEventListener("click", (event) =>
+      editarFuncionario(event.target.value)
       );
     });
   } catch (err) {

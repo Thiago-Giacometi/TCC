@@ -25,6 +25,11 @@ async function deletarLavaRapido(id_lava_rapido) {
   }
 }
 
+function editarLavaRapido(id_lava_rapido) {
+  window.localStorage.setItem("idLavaRapido", JSON.stringify(id_lava_rapido));
+  window.location.href = "admEditLavaRapido.html";
+}
+
 function limparCampos() {
   document.getElementById("nome").value = "";
   document.getElementById("cep").value = "";
@@ -108,7 +113,7 @@ async function popularTabela() {
       complemento.innerHTML = item.ds_complemento;
 
       let editar = linha.insertCell(8);
-      editar.innerHTML = `<button  class='button is-info is-small'>Editar</button>`;
+      editar.innerHTML = `<button value="${item.id_lava_rapido}" class='button is-info is-small editar'>Editar</button>`;
 
       let excluir = linha.insertCell(9);
       excluir.innerHTML = `<button value="${item.id_lava_rapido}" class='button is-danger is-small deletar'>Excluir</button>`;
@@ -117,6 +122,12 @@ async function popularTabela() {
     document.querySelectorAll(".deletar").forEach((button) => {
       button.addEventListener("click", (event) =>
         deletarLavaRapido(event.target.value)
+      );
+    });
+
+    document.querySelectorAll(".editar").forEach((button) => {
+      button.addEventListener("click", (event) =>
+        editarLavaRapido(event.target.value)
       );
     });
   } catch (err) {

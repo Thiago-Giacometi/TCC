@@ -3,8 +3,8 @@ $(document).ready(function() {
   $('#telefone').mask('(00) 00000-0000');
   $('#cep').mask('00000-000');
   $('#data').mask('00/00/0000');
-  $('#hora').mask('00:00');
-  $('#money').mask('000.000.000.000.000,00', {reverse: true});
+  //$('#hora').mask('00:00');
+  //$('#money').mask('000.000.000.000.000,00', {reverse: true});
 
   $('.toggler').on('click', function() {
     $('.menu-container').toggleClass('active');

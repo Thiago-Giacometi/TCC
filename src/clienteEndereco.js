@@ -9,7 +9,7 @@ let rua = document.getElementById("rua");
 let numero = document.getElementById("numero");
 let complemento = document.getElementById("complemento");
 let btnCadastro = document.getElementById("cadastro");
-let id_cliente;
+let id_cliente = idCliente();
 
 async function deletarEndereco(id_endereco_cliente) {
   try {
@@ -23,6 +23,11 @@ async function deletarEndereco(id_endereco_cliente) {
   } catch (err) {
     console.log(err);
   }
+}
+
+function editarAgendamento(id_endereco_cliente) {
+  window.localStorage.setItem("idEndereco", JSON.stringify(id_endereco_cliente));
+  window.location.href = "clienteEditEnderecos.html";
 }
 
 async function enviarFormulario(event) {
@@ -45,7 +50,7 @@ async function enviarFormulario(event) {
       cidade.value,
       uf.value,
       cep.value,
-      (id_cliente = idCliente())
+      id_cliente,
     );
     console.log(endereco);
 
@@ -56,6 +61,7 @@ async function enviarFormulario(event) {
 
     alert("Endereço cadastrado com sucesso");
     popularTabela();
+    limparCampos();
   } else {
     alert("Favor preencher todos os campos");
   }
@@ -129,6 +135,17 @@ function idCliente() {
 
     return usuario.id_cliente || alert("Realizar Login Novamente!");
   }
+}
+
+function limparCampos() {
+  document.getElementById("nome").value = "";
+  document.getElementById("cep").value = "";
+  document.getElementById("bairro").value = "";
+  document.getElementById("uf").value = "";
+  document.getElementById("cidade").value = "";
+  document.getElementById("rua").value = "";
+  document.getElementById("numero").value = "";
+  document.getElementById("complemento").value = "";
 }
 
 btnCadastro.addEventListener("click", enviarFormulario);
