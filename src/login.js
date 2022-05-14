@@ -24,7 +24,7 @@ async function login(event) {
       }
 
       if (dados.data.ds_funcao === "Funcionário") {
-        window.location.href = "funcionario.html";
+        window.location.href = "funcionarioAgenda.html";
       }
 
       if (!dados.data.ds_funcao) {
