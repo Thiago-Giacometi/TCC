@@ -10,53 +10,66 @@ async function popularTabela() {
     console.log(dados);
 
     dados.data.forEach((item) => {
-      let linha = table.insertRow();
 
-      let lavaRapido = linha.insertCell(0);
-      lavaRapido.innerHTML = item.tb_lava_rapido.ds_nome;
+      if (dataHoje() == item.dt_agendamento) {
+        let linha = table.insertRow();
 
-      let cliente = linha.insertCell(1);
-      cliente.innerHTML = item.tb_cliente.ds_nome;
+        let lavaRapido = linha.insertCell(0);
+        lavaRapido.innerHTML = item.tb_lava_rapido.ds_nome;
 
-      let carro = linha.insertCell(2);
-      carro.innerHTML = item.ds_modelo;
+        let cliente = linha.insertCell(1);
+        cliente.innerHTML = item.tb_cliente.ds_nome;
 
-      let placa = linha.insertCell(3);
-      placa.innerHTML = item.ds_placa;
+        let carro = linha.insertCell(2);
+        carro.innerHTML = item.ds_modelo;
 
-      let data = linha.insertCell(4);
-      data.innerHTML = item.dt_agendamento;
+        let placa = linha.insertCell(3);
+        placa.innerHTML = item.ds_placa;
 
-      let horario = linha.insertCell(5);
-      horario.innerHTML = item.hr_agendamento;
+        let data = linha.insertCell(4);
+        data.innerHTML = item.dt_agendamento;
 
-      let servico = linha.insertCell(6);
-      servico.innerHTML = item.tb_servico.ds_nome_servico;
+        let horario = linha.insertCell(5);
+        horario.innerHTML = item.hr_agendamento;
 
-      let preco = linha.insertCell(7);
-      preco.innerHTML = item.tb_servico.ds_preco;
+        let servico = linha.insertCell(6);
+        servico.innerHTML = item.tb_servico.ds_nome_servico;
 
-      let modo = linha.insertCell(8);
-      modo.innerHTML = item.modo;
+        let preco = linha.insertCell(7);
+        preco.innerHTML = item.tb_servico.ds_preco;
 
-      let rua = linha.insertCell(9);
-      rua.innerHTML = item.tb_endereco_cliente.ds_rua;
+        let modo = linha.insertCell(8);
+        modo.innerHTML = item.modo;
 
-      let numero = linha.insertCell(10);
-      numero.innerHTML = item.tb_endereco_cliente.ds_numero;
+        let rua = linha.insertCell(9);
+        rua.innerHTML = item.tb_endereco_cliente.ds_rua;
 
-      let bairro = linha.insertCell(11);
-      bairro.innerHTML = item.tb_endereco_cliente.ds_bairro;
+        let numero = linha.insertCell(10);
+        numero.innerHTML = item.tb_endereco_cliente.ds_numero;
 
-      let cidade = linha.insertCell(12);
-      cidade.innerHTML = item.tb_endereco_cliente.ds_cidade;
+        let bairro = linha.insertCell(11);
+        bairro.innerHTML = item.tb_endereco_cliente.ds_bairro;
 
-      let uf = linha.insertCell(13);
-      uf.innerHTML = item.tb_endereco_cliente.ds_uf;
+        let cidade = linha.insertCell(12);
+        cidade.innerHTML = item.tb_endereco_cliente.ds_cidade;
+
+        let uf = linha.insertCell(13);
+        uf.innerHTML = item.tb_endereco_cliente.ds_uf;
+      }
     });
   } catch (err) {
     console.log(err);
   }
+}
+
+function dataHoje() {
+  var data = new Date();
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+  var dataAtual = dia + '/' + mes + '/' + ano;
+
+  return dataAtual;
 }
 
 popularTabela();
