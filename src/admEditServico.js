@@ -4,7 +4,7 @@ let nome = document.getElementById("servico");
 let money = document.getElementById("preco");
 let descricao = document.getElementById("descricao");
 let btnAtualizar = document.getElementById("atualizar");
-let lavaRapido = document.getElementById("lavaRapidos");
+let lavaRapido;
 const id_servico_string = window.localStorage.getItem("idServico");
 let id_servico = id_servico_string.replace(/"/g, "");
 
@@ -16,29 +16,14 @@ async function preencheServico() {
   }
   try {
     const dados2 = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/servico/" + id_servico
+      "https://still-gorge-45462.herokuapp.com/servicos/" + id_servico
     );
     console.log(dados2);
     document.getElementById("servico").value = dados2.data[0].ds_nome_servico;
     document.getElementById("preco").value = dados2.data[0].ds_preco;
-    document.getElementById("lavaRapidos").value = dados2.data[0].tb_lava_rapido.ds_nome;
-    document.getElementById("descricao").value = dados2.dados[0].ds_servico;
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-async function popularSelect() {
-  try {
-    const dados = await axios.get(
-      "https://still-gorge-45462.herokuapp.com/lavaRapido"
-    );
-    console.log(dados);
-
-    const options = dados.data.forEach((item) => {
-      const option = new Option(item.ds_nome, item.id_lava_rapido);
-      lavaRapido.appendChild(option);
-    });
+    document.getElementById("lavaRapido").value = dados2.data[0].tb_lava_rapido.ds_nome;
+    document.getElementById("descricao").value = dados2.data[0].ds_servico;
+    lavaRapido = dados2.data[0].tb_lava_rapido.id_lavarapido;
   } catch (err) {
     console.log(err);
   }
@@ -49,19 +34,18 @@ async function enviarFormulario(event) {
   if (
     nome.value != "" &&
     money.value != "" &&
-    descricao.value != "" &&
-    lavaRapido.value != "null"
+    descricao.value != "" 
   ) {
     let servico = new Servico(
       nome.value,
       descricao.value,
       money.value,
-      lavaRapido.value
+      lavaRapido,
     );
     console.log(servico);
 
     await axios.put(
-      `https://still-gorge-45462.herokuapp.com/servicos/${id_agendamento}`,
+      `https://still-gorge-45462.herokuapp.com/servicos/${id_servico}`,
       servico
     );
 
@@ -73,5 +57,4 @@ async function enviarFormulario(event) {
 }
 
 preencheServico()
-popularSelect()
 btnAtualizar.addEventListener('click', enviarFormulario)

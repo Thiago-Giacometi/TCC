@@ -106,7 +106,7 @@ async function popularTabela() {
       );
     });
 
-    document.querySelectorAll(".deletar").forEach((button) => {
+    document.querySelectorAll(".editar").forEach((button) => {
       button.addEventListener("click", (event) =>
         editarServico(event.target.value)
       );

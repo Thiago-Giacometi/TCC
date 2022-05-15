@@ -101,3 +101,8 @@ h2{
   color: black;
   font-size: large;
 }
+
+.textarea{
+  width: 400px;
+  min-width: 0%;
+}

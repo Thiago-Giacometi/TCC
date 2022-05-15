@@ -69,7 +69,7 @@ async function enviarFormulario(event) {
     );
 
     alert("Endereço atualizado com sucesso");
-    popularTabela();
+    window.location.href = "clienteEnderecos.html"
   } else {
     alert("Favor preencher todos os campos");
   }

@@ -30,7 +30,7 @@ function editarAgendamento(id_endereco_cliente) {
     "idEndereco",
     JSON.stringify(id_endereco_cliente)
   );
-  window.location.href = "clientEditEnderecos.html";
+  window.location.href = "clienteEditEnderecos.html";
 }
 
 async function enviarFormulario(event) {
