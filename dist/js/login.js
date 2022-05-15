@@ -20,7 +20,7 @@ async function login(event) {
       window.localStorage.setItem("usuario", JSON.stringify(dados.data));
 
       if (dados.data.ds_funcao === "Administrador") {
-        window.location.href = "admDashboard.html";
+        window.location.href = "admAgenda.html";
       }
 
       if (dados.data.ds_funcao === "Funcionário") {
