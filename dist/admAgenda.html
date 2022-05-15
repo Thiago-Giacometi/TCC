@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Administrador - Funcionários</title>
+  <title>Administrador - Agenda</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
     integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -65,7 +65,7 @@
             <p class="menu-label has-text-white">Geral</p>
             <ul class="menu-list">
               <li>
-                <a href="admDashboard.html" class="has-text-black ">
+                <a href="admDashboard.html" class="has-text-black">
                   <i class="fas fa-tachometer-alt icon"></i>
                   Dashboard</a>
               </li>
@@ -78,7 +78,7 @@
                   Lava Rápidos</a>
               </li>
               <li>
-                <a href="admFuncionarios.html" class="has-text-black has-background-white">
+                <a href="admFuncionarios.html" class="has-text-black">
                   <i class="fas fa-cogs icon"></i>
                   Funcionários</a>
               </li>
@@ -93,7 +93,7 @@
                   Clientes</a>
               </li>
               <li>
-                <a href="admAgenda.html" class="has-text-black">
+                <a href="admAgenda.html" class="has-text-black has-background-white">
                   <i class="fas fa-cogs icon"></i>
                   Agenda</a>
               </li>
@@ -128,112 +128,39 @@
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
-
-
-          <h2>Adicionar Funcionário</h2>
-          <div class="espacoForm">
-
-            <div class="field is-grouped">
-              <label class="label">Nome</label>
-              <div class="control">
-                <input class="input" type="text" id="nome">
-              </div>
-              <label class="label">CPF</label>
-              <div class="control">
-                <input class="input" type="text" id="cpf">
-              </div>
-              <label class="label">Lava Rápido</label>
-              <div class="control">
-                <div class="select">
-                  <select id="lavaRapido">
-                    <option hidden value="null">Selecione um lava rápido</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="field is-grouped">
-              <label class="label">Email</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="E-mail" id="email">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
-                </span>
-              </div>
-
-              <label class="label">Senha</label>
-              <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Senha" id="senha">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-lock"></i>
-                </span>
-              </p>
-
-              <label class="label">Confirme a senha</label>
-              <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Senha" id="senhaConfirm">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-
-            <div class="field is-grouped">
-              <label class="label">Função</label>
-              <div class="control">
-                <div class="select">
-                  <select id="funcao">
-                    <option>Administrador</option>
-                    <option>Funcionário</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" id="cadastro">Cadastrar</button>
-            </div>
-          </div>
-
-          <br>
-          <br>
-
-          <div>
-            <table class="content-table">
-              <caption>
-                Meus Funcionários
-              </caption>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>CPF</th>
-                  <th>Lava Rápido</th>
-                  <th>Senha</th>
-                  <th>Lava Rápido</th>
-                  <th>Função</th>
-                  <th>Editar</th>
-                  <th>Excluir</th>
-                </tr>
-              </thead>
-              <tbody id="table">
-                
-              </tbody>
-            </table>
-          </div>
+          <table class="content-table">
+            <caption>
+              Meus Agendamentos
+            </caption>
+            <thead>
+              <tr>
+                <th>Lava Rápido</th>
+                <th>Cliente</th>
+                <th>Carro</th>
+                <th>Placa</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Serviço</th>
+                <th>Preço</th>
+                <th>Modo</th>
+                <th>Cancelar</th>
+              </tr>
+            </thead>
+            <tbody id="table">
+              
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
 
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="../../src/jquery.mask.js"></script>
+<script type="text/javascript" src="../js/jquery.mask.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="module" src="../../src/globais.js"></script>
-<script src="../../src/dashboard.js"></script>
-<script type="module" src="../../src/admFuncionario.js"></script>
+<script type="module" src="../js/globais.js"></script>
+<script src="../js/dashboard.js"></script>
+<script type="module" src="../js/admAgenda.js"></script>
 
 </html>

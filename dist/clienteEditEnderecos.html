@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Meus Agendamentos</title>
+  <title>Meus Endereços</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
     integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -65,7 +65,7 @@
             <p class="menu-label has-text-white">Serviços</p>
             <ul class="menu-list">
               <li>
-                <a href="clienteAgendamentos.html" class="has-text-black has-background-white">
+                <a href="clienteAgendamentos.html" class="has-text-black">
                   <i class="fas fa-cogs icon"></i>
                   Agendamentos</a>
               </li>
@@ -73,12 +73,12 @@
             <p class="menu-label has-text-white">Outros</p>
             <ul class="menu-list">
               <li>
-                <a href="clienteMeusDados.html" class="has-text-black">
+                <a href="clienteMeusDados.html" class="has-text-black ">
                   <i class="fas fa-info-circle icon"></i>
                   Meus Dados</a>
               </li>
               <li>
-                <a href="clienteEnderecos.html" class="has-text-black">
+                <a href="clienteEnderecos.html" class="has-text-black has-background-white">
                   <i class="fas fa-info-circle icon"></i>
                   Meus Endereços</a>
               </li>
@@ -100,87 +100,101 @@
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
+
+
+
           <div class="espacoForm">
-            <h2>Atualizar Agendamento</h2>
+            <h2>Adicionar Endereço</h2>
             <div class="field">
-              <label class="label">Lava Rápido</label>
+              <label class="label">Tipo</label>
               <div class="control">
-                <input class="input" type="text" disabled id="lavaRapido" disable>
+                <input class="input" type="text" id="nome">
               </div>
-              <label class="label">Modelo</label>
+              <label class="label">CEP</label>
               <div class="control">
-                <input class="input" type="text" id="veiculo">
-              </div>
-              <label class="label">Placa</label>
-              <div class="control">
-                <input class="input" type="text" id="placa">
-              </div>
-              <label class="label">Endereço</label>
-              <div class="control">
-                <input class="input" type="text" disabled id="endereco" disable>
-              </div>
-              <label class="label">Data</label>
-              <div class="control">
-                <input class="input" type="text" id="data">
+                <input class="input" type="text" id="cep">
               </div>
 
-              <label class="label">Horário</label>
+
+              <label class="label ">Bairro</label>
+              <div class="control">
+                <input class="input" type="text" id="bairro">
+              </div>
+
+              <label class="label">UF</label>
               <div class="control">
                 <div class="select">
-                  <select id="hora">
-                    <option>08:00</option>
-                    <option>09:00</option>
-                    <option>10:00</option>
-                    <option>11:00</option>
-                    <option>12:00</option>
-                    <option>13:00</option>
-                    <option>14:00</option>
-                    <option>15:00</option>
-                    <option>16:00</option>
-                    <option>17:00</option>
+                  <select id="uf">
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AM</option>
+                    <option>AP</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MG</option>
+                    <option>MS</option>
+                    <option>MT</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>PR</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>RS</option>
+                    <option>SC</option>
+                    <option>SE</option>
+                    <option>SP</option>
+                    <option>TO</option>
                   </select>
                 </div>
               </div>
-              
-              <label class="label">Serviço</label>
+
+              <label class="label ">Cidade</label>
               <div class="control">
-                <input class="input" type="text" disabled id="servico" disable>
+                <input class="input" type="text" id="cidade">
               </div>
-              <label class="label">Preço</label>
+
+
+              <label class="label">Rua</label>
               <div class="control">
-                <input class="input" type="text" disabled id="preco">
+                <input class="input" type="text" id="rua">
               </div>
-              <label class="label">Modo</label>
+              <label class="label">Número</label>
               <div class="control">
-                <div class="select">
-                  <select id="modo">
-                    <option>Local</option>
-                    <option>Leva - Traz</option>
-                  </select>
-                </div>
+                <input class="input" type="text" id="numero">
               </div>
-              <br>
-              <div class="field is-grouped" id="buttons">
-                <div class="control">
-                  <button class="button is-link" id="atualizar">Atualizar</button>
-                </div>
-                <br>
+              <label class="label">Complemento</label>
+              <div class="control">
+                <input class="input" type="text" id="complemento">
               </div>
             </div>
+
+            <div class="field is-grouped" id="buttons">
+              <div class="control">
+                <button class="button is-link" id="atualizar">Atualizar</button>
+              </div>
+              <br>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-
 
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="../../src/jquery.mask.js"></script>
+<script type="text/javascript" src="../js/jquery.mask.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="module" src="../../src/globais.js"></script>
-<script src="../../src/dashboard.js"></script>
-<script type="module" src="../../src/clienteEditAgenda.js"></script>
+<script type="module" src="../js/globais.js"></script>
+<script src="../js/dashboard.js"></script>
+<script type="module" src="../js/clienteEditEndereco.js"></script>
 
 </html>

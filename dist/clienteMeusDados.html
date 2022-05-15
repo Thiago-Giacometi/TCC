@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Meus Endereços</title>
+    <title>Meus Dados</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
@@ -91,19 +91,19 @@
               <p class="menu-label has-text-white">Outros</p>
               <ul class="menu-list">
                 <li>
-                  <a href="clienteMeusDados.html" class="has-text-black " >
+                  <a href="clienteMeusDados.html" class="has-text-black has-background-white" >
                     <i class="fas fa-info-circle icon"></i>
                     Meus Dados</a
                   >
                 </li>
                 <li>
-                  <a href="clienteEnderecos.html" class="has-text-black has-background-white">
+                  <a href="clienteEnderecos.html" class="has-text-black">
                     <i class="fas fa-info-circle icon"></i>
                     Meus Endereços</a
                   >
                 </li>
                 <li>
-                  <a class="has-text-black" id="sair">
+                  <<a class="has-text-black" id="sair">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                     Sair
                   </a>
@@ -123,114 +123,74 @@
       <div class="columns is-variable is-desktop">
         <div class="column">
 
+          <div class="field">
+            <label class="label">Nome</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Nome Completo" id="nome" required>
+            </div>
+          </div> 
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="E-mail" id="email" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">CPF</label>
+            <div class="control">
+              <input class="input" type="text" id="cpf" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Telefone</label>
+            <div class="control">
+              <input class="input" type="text" id="telefone" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Senha</label>
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Senha" id="senha" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Confirmar senha</label>
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Senha" id="senhaConfirm" required>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
           
-          <h2>Adicionar Endereço</h2>
-          <div class="espacoForm">
-
-            <div class="field is-grouped">
-              <label class="label">Tipo</label>
-              <div class="control">
-                <input class="input" type="text" id="nome">
-              </div>
-              <label class="label">CEP</label>
-              <div class="control">
-                <input class="input" type="text" id="cep">
-              </div>
-            </div> 
-            <div class="field is-grouped">
-              <label class="label ">Bairro</label>
-              <div class="control">
-                <input class="input" type="text" id="bairro">
-              </div>
-
-              <label class="label">UF</label>
-              <div class="control">
-                <div class="select">
-                  <select id="uf">
-                    <option>AC</option>
-                    <option>AL</option>
-                    <option>AM</option>
-                    <option>AP</option>
-                    <option>BA</option>
-                    <option>CE</option>
-                    <option>DF</option>
-                    <option>ES</option>
-                    <option>GO</option>
-                    <option>MA</option>
-                    <option>MG</option>
-                    <option>MS</option>
-                    <option>MT</option>
-                    <option>PA</option>
-                    <option>PB</option>
-                    <option>PE</option>
-                    <option>PI</option>
-                    <option>PR</option>
-                    <option>RJ</option>
-                    <option>RN</option>
-                    <option>RO</option>
-                    <option>RR</option>
-                    <option>RS</option>
-                    <option>SC</option>
-                    <option>SE</option>
-                    <option>SP</option>
-                    <option>TO</option>
-                  </select>
-                </div>
-              </div>
-
-              <label class="label ">Cidade</label>
-              <div class="control">
-                <input class="input" type="text" id="cidade">
-              </div>
-            </div> 
-            <div class="field is-grouped">
-              <label class="label">Rua</label>
-              <div class="control">
-                <input class="input" type="text" id="rua">
-              </div>
-              <label class="label">Número</label>
-              <div class="control">
-                <input class="input" type="text" id="numero">
-              </div>
-              <label class="label">Complemento</label>
-              <div class="control">
-                <input class="input" type="text" id="complemento">
+          <div class="field">
+            <label class="label">Sexo</label>
+            <div class="control">
+              <div class="select">
+                <select id="sexo">
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                </select>
               </div>
             </div>
           </div>
-          <br>
+                                           
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link" id="cadastro">Cadastrar</button>
+              <button class="button is-link" id="cadastro">Atualizar</button>
             </div>
           </div>
-          <br>
-          <br>
-          <div>
-            <table class="content-table">
-              <caption>
-                Meus Endereços
-              </caption>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Rua</th>
-                  <th>Número</th>
-                  <th>Bairro</th>
-                  <th>Complemento</th>
-                  <th>Cidade</th>
-                  <th>Estado</th>
-                  <th>CEP</th>
-                  <th>Editar</th>
-                  <th>Excluir</th>
-                </tr>
-              </thead>
-              <tbody id="table">
-                
-              </tbody>
-            </table>
-          </div>
-
 
         </div>
       </div>
@@ -239,9 +199,9 @@
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-  <script type="text/javascript" src="../../src/jquery.mask.js"></script>
+  <script type="text/javascript" src="../js/jquery.mask.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="../../src/globais.js"></script>
-  <script src="../../src/dashboard.js"></script>
-  <script type="module" src="../../src/clienteEndereco.js"></script>
+  <script type="module" src="../js/globais.js"></script>
+  <script type="module" src="../js/clienteDados.js"></script>
+  <script src="../js/dashboard.js"></script>
 </html>

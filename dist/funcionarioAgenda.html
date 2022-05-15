@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Administrador - Agenda</title>
+  <title>Funcionário - Agenda</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
     integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -62,54 +62,16 @@
       <div class="menu-container px-1">
         <div class="menu-wrapper py-1">
           <aside class="menu">
-            <p class="menu-label has-text-white">Geral</p>
-            <ul class="menu-list">
-              <li>
-                <a href="admDashboard.html" class="has-text-black">
-                  <i class="fas fa-tachometer-alt icon"></i>
-                  Dashboard</a>
-              </li>
-            </ul>
+            
             <p class="menu-label has-text-white">Gerenciamento</p>
             <ul class="menu-list">
-              <li>
-                <a href="admLavaRapidos.html" class="has-text-black">
-                  <i class="fas fa-cogs icon"></i>
-                  Lava Rápidos</a>
-              </li>
-              <li>
-                <a href="admFuncionarios.html" class="has-text-black">
-                  <i class="fas fa-cogs icon"></i>
-                  Funcionários</a>
-              </li>
-              <li>
-                <a href="admServico.html" class="has-text-black">
-                  <i class="fas fa-cogs icon"></i>
-                  Serviços</a>
-              </li>
-              <li>
-                <a href="admCliente.html" class="has-text-black">
-                  <i class="fas fa-cogs icon"></i>
-                  Clientes</a>
-              </li>
               <li>
                 <a href="admAgenda.html" class="has-text-black has-background-white">
                   <i class="fas fa-cogs icon"></i>
                   Agenda</a>
               </li>
             </ul>
-            <p class="menu-label has-text-white">Relatórios</p>
             <ul class="menu-list">
-              <li>
-                <a href="admReportAgenda.html" class="has-text-black ">
-                  <i class="fas fa-info-circle icon"></i>
-                  Agendamentos</a>
-              </li>
-              <li>
-                <a href="admReportPagamento.html" class="has-text-black">
-                  <i class="fas fa-info-circle icon"></i>
-                  Pagamentos</a>
-              </li>
               <li>
                 <a class="has-text-black" id="sair">
                   <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -130,7 +92,7 @@
         <div class="column">
           <table class="content-table">
             <caption>
-              Meus Agendamentos
+              Agendamentos
             </caption>
             <thead>
               <tr>
@@ -143,24 +105,25 @@
                 <th>Serviço</th>
                 <th>Preço</th>
                 <th>Modo</th>
-                <th>Cancelar</th>
+                <th>Rua</th>
+                <th>Numero</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
               </tr>
             </thead>
             <tbody id="table">
-              
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="../../src/jquery.mask.js"></script>
+<script type="text/javascript" src="../js/jquery.mask.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="module" src="../../src/globais.js"></script>
-<script src="../../src/dashboard.js"></script>
-<script type="module" src="../../src/admAgenda.js"></script>
-
+<script type="module" src="../js/globais.js"></script>
+<script src="../js/dashboard.js"></script>
+<script type="module" src="../js/funcionarioAgenda.js"></script>
 </html>

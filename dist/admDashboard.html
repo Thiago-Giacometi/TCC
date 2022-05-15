@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Administrador - Serviços</title>
+    <title>Administrador - Dashboard</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
@@ -82,7 +82,7 @@
               <p class="menu-label has-text-white">Geral</p>
               <ul class="menu-list">
                 <li>
-                  <a href="admDashboard.html" class="has-text-black ">
+                  <a href="admDashboard.html" class="has-text-black has-background-white">
                     <i class="fas fa-tachometer-alt icon"></i>
                     Dashboard</a
                   >
@@ -103,13 +103,13 @@
                   >
                 </li>
                 <li>
-                  <a href="admServico.html" class="has-text-black ">
+                  <a href="admServico.html" class="has-text-black">
                     <i class="fas fa-cogs icon"></i>
                     Serviços</a
                   >
                 </li>
                 <li>
-                  <a href="admCliente.html" class="has-text-black has-background-white">
+                  <a href="admCliente.html" class="has-text-black">
                     <i class="fas fa-cogs icon"></i>
                     Clientes</a
                   >
@@ -151,26 +151,21 @@
     <!-- Form -->
     <div
     class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile" id="form"
-  >
+    >
     <div class="p-1">
       <div class="columns is-variable is-desktop">
         <div class="column">
-          <table class="content-table">
-            <caption>
-              Meus Clientes
-            </caption>
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Telefone</th>
-                <th>CPF</th>
-              </tr>
-            </thead>
-            <tbody id="table">
-              
-            </tbody>           
-          </table>
+          <h1>
+            Dashboard
+          </h1>
+          <div class="chartCard">
+            <div class="chartBox">
+              <canvas class="line-chart-agenda"></canvas>
+            </div>
+            <div class="chartBox">
+              <canvas class="line-chart-faturamento"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -178,9 +173,9 @@
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-  <script type="text/javascript" src="../../src/jquery.mask.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="../../src/globais.js"></script>
-  <script src="../../src/dashboard.js"></script>
-  <script type="module" src="../../src/admCliente.js"></script>
+  <script type="text/javascript" src="../js/jquery.mask.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="../js/globais.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/graph.js"></script>
 </html>

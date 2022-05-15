@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     />
     <script src="https://kit.fontawesome.com/63ef79e03c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/edit.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
  
   <body>
@@ -157,10 +157,10 @@
         <div class="column">
 
           
-          
+          <h2>Adicionar Serviço</h2>
           <div class="espacoForm">
-            <h2>Atualizar Serviço</h2>
-            <div class="field">
+
+            <div class="field is-grouped">
               <label class="label">Serviço</label>
               <div class="control">
                 <input class="input" type="text" id="servico">
@@ -169,28 +169,51 @@
               <div class="control">
                 <input class="input" type="text" id="preco">
               </div>
-              <label class="label">Lava Rápido</label>
-              <div class="control">
-                <input class="input" type="text" disabled id="lavaRapido" disable>
-              </div>
-                  <label class="label">Descrição</label>
-                  <textarea class="textarea" placeholder="Decreva o serviço" rows="2" id="descricao"></textarea>
-                </div>
-                <br>
-                <div class="field is-grouped" id="buttons">
-                  <div class="control">
-                    <button class="button is-link" id="atualizar">Atualizar</button>
+                <label class="label">Lava Rápido</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="lavaRapidos">
+                      <option hidden value="null">Selecione um lava rápido</option>
+                    </select>
                   </div>
                 </div>
             </div>
+            <div>
+              <label class="label">Descrição</label>
+              <textarea class="textarea" placeholder="Decreva o serviço" rows="2" id="descricao"></textarea>
+            </div>
+
           </div>
           <br>
-          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" id="cadastro">Cadastrar</button>
+            </div>
+          </div>
 
           <br>
           <br>
           
-          
+          <div>
+            <table class="content-table">
+              <caption>
+                Meus Serviços
+              </caption>
+              <thead>
+                <tr>
+                  <th>Serviço</th>
+                  <th>Preço</th>
+                  <th>Lava Rápido</th>
+                  <th>Descrição</th>
+                  <th>Editar</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead>
+              <tbody id="table">
+
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -198,9 +221,8 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="../../src/jquery.mask.js"></script>
-  <script type="module" src="../../src/globais.js"></script>
-  <script src="../../src/dashboard.js"></script>
-  <script type="module" src="../../src/admEditServico.js"></script>
-
+  <script type="text/javascript" src="../js/jquery.mask.js"></script>
+  <script type="module" src="../js/globais.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script type="module" src="../js/admServiço.js"></script>
 </html>
